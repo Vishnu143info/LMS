@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrightMind</title>
+    <!-- Favicon for the webpage -->
+    <link rel="icon" type="image/x-icon" href="/IMAGES/LMS__1_-removebg-preview.png">
+    <link rel="stylesheet" href="/CSS/coursecreate.css">
+
+</head>
+<body>
+    <header class="header">
+        <div class="flex">
+            <button id="menu-btn" class="d-md-none">☰</button> <!-- Added toggle button -->
+            <a href="#" class="logo"><b>Admin Dashboard</b></a>
+        </div>
+    </header>
+<div>
+    <aside class="side-bar">
+        <div id="close-btn">
+            <i class="fas fa-times"></i>
+        </div>
+
+        <div class="profile">
+            <img src="/IMAGES/LMS_LEARNING_MANAGEMENT_SYSTEM__1_-removebg-preview.png" alt="Profile Image" class="image">
+            <h3 class="name">BrightMind</h3>
+        </div>
+
+        <nav class="navbar">
+            <a href="/HTML/Admin_Dashboard.html" class="d-block py-2 "><i class="fas fa-home"></i> Home</a>
+            <a href="/HTML/Coursecreate.html" class="d-block py-2 "><i class="fas fa-user"></i> Create course</a>
+            <a href="/HTML/delete.html" class="d-block py-2 "><i class="fas fa-database"></i> View All Courses</a>
+            <a href="/HTML/courselist.html" class="d-block py-2 "><i class="fas fa-book-open"></i> Total Courses</a>
+            <a href="/HTML/Instructorlist.html" class="d-block py-2 "><i class="fas fa-user-graduate"></i> Total Instructor</a>
+            <a href="/HTML/studentlist.html" class="d-block py-2 "><i class="fas fa-address-card"></i> Total Students</a>
+            <a href="/HTML/report.html" class="d-block py-2 "><i class="fas fa-cog"></i> Report</a>
+            <a href="/HTML/logout.html" class="d-block py-2 "><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </nav>
+    </aside>
+</div>
+    <section class="admin-dashboard">
+        <div class="course-management">
+            <div class="title"><h1>Create Course</h1></div>
+            <form class="edit-course-form" id="courseForm" novalidate>
+                <div class="input-group">
+                    <label for="course-name">Course Name</label>
+                    <input type="text" id="course-name" name="course-name" class="form-control" placeholder="Enter course name">
+                    <div class="alert alert-danger mt-2 d-none" id="course-name-alert">Please enter the course name.</div>
+                </div>
+                <div class="input-group">
+                    <label for="course-description">Course Description</label>
+                    <textarea id="course-description" name="course-description" class="form-control" placeholder="Enter course description"></textarea>
+                    <div class="alert alert-danger mt-2 d-none" id="course-description-alert">Please enter the course description.</div>
+                </div>
+                <div class="input-group">
+                    <label for="course-instructor">Course Instructor</label>
+                    <input type="text" id="course-instructor" name="course-instructor" class="form-control" placeholder="Enter instructor name">
+                    <div class="alert alert-danger mt-2 d-none" id="course-instructor-alert">Please enter the course instructor's name.</div>
+                </div>
+                <div class="input-group">
+                    <label for="course-duration">Course Duration</label>
+                    <input type="text" id="course-duration" name="course-duration" class="form-control" placeholder="Enter course duration">
+                    <div class="alert alert-danger mt-2 d-none" id="course-duration-alert">Please enter the course duration.</div>
+                </div>
+                <div class="input-group">
+                    <label for="course-price">Course Price</label>
+                    <input type="text" id="course-price" name="course-price" class="form-control" placeholder="Enter course price">
+                    <div class="alert alert-danger mt-2 d-none" id="course-price-alert">Please enter the course price.</div>
+                </div>
+                <div class="input-group">
+                    <label for="course-material">Upload Course Material</label>
+                    <input type="file" id="course-material" name="course-material" class="form-control">
+                    <div class="alert alert-danger mt-2 d-none" id="course-material-alert">Please upload the course material.</div>
+                </div>
+                <div class="course-actions">
+                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                    <button type="button" class="btn btn-secondary"><a href="/HTML/Admin_Dashboard.html" style="color: white;">Cancel</a></button>
+                </div>
+            </form>
+        </div>
+    </section>
+    <footer class="footer">
+        &copy; copyrights 2024 BrightMind. All rights reserved.
+    </footer>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"></script>
+    <script>
+        // JavaScript Form Validation
+        document.getElementById('courseForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            let isValid = true;
+
+            // Course Name
+            const courseName = document.getElementById('course-name');
+            const courseNameAlert = document.getElementById('course-name-alert');
+            if (courseName.value.trim() === '') {
+                courseNameAlert.classList.remove('d-none');
+                isValid = false;
+            } else {
+                courseNameAlert.classList.add('d-none');
+            }
+
+            // Course Description
+            const courseDescription = document.getElementById('course-description');
+            const courseDescriptionAlert = document.getElementById('course-description-alert');
+            if (courseDescription.value.trim() === '') {
+                courseDescriptionAlert.classList.remove('d-none');
+                isValid = false;
+            } else {
+                courseDescriptionAlert.classList.add('d-none');
+            }
+
+            // Course Instructor
+            const courseInstructor = document.getElementById('course-instructor');
+            const courseInstructorAlert = document.getElementById('course-instructor-alert');
+            if (courseInstructor.value.trim() === '') {
+                courseInstructorAlert.classList.remove('d-none');
+                isValid = false;
+            } else {
+                courseInstructorAlert.classList.add('d-none');
+            }
+
+            // Course Duration
+            const courseDuration = document.getElementById('course-duration');
+            const courseDurationAlert = document.getElementById('course-duration-alert');
+            if (courseDuration.value.trim() === '') {
+                courseDurationAlert.classList.remove('d-none');
+                isValid = false;
+            } else {
+                courseDurationAlert.classList.add('d-none');
+            }
+
+            // Course Price
+            const coursePrice = document.getElementById('course-price');
+            const coursePriceAlert = document.getElementById('course-price-alert');
+            if (coursePrice.value.trim() === '') {
+                coursePriceAlert.classList.remove('d-none');
+                isValid = false;
+            } else {
+                coursePriceAlert.classList.add('d-none');
+            }
+
+            // Course Material
+            const courseMaterial = document.getElementById('course-material');
+            const courseMaterialAlert = document.getElementById('course-material-alert');
+            if (courseMaterial.value === '') {
+                courseMaterialAlert.classList.remove('d-none');
+                isValid = false;
+            } else {
+                courseMaterialAlert.classList.add('d-none');
+            }
+
+            // If the form is valid, submit it
+            if (isValid) {
+                // Replace this with form submission code, e.g., AJAX
+                alert('Form submitted successfully!');
+            }
+        });
+    </script>
+
+    <!-- Bootstrap JS (Optional for some components) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

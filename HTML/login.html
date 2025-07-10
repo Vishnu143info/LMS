@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrightMind</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+            <!-- Font Awesome for icons -->
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../CSS/login.css"> <!-- Your custom CSS -->
+</head>
+<body>
+    <header class="bg-gradient text-white shadow-sm fixed-top">
+        <div class="container d-flex align-items-center justify-content-between">
+            <div class="logo d-flex align-items-center">
+                <img src="/IMAGES/LMS_LEARNING_MANAGEMENT_SYSTEM__1_-removebg-preview.png" alt="Logo" class="logo-img">
+                <span class="logo-text">BrightMind</span>
+            </div>
+            <nav>
+                <ul class="nav nav-pills">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">Home</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <section class="mt-5 pt-1">
+        <div class="container d-flex justify-content-center align-items-center">
+            <div class="row w-100 col-md-100">
+                <div class="col-md-6 mt-5  justify-content-center align-items-center">
+                    <img src="../IMAGES/Account Log In (1).png" alt="3D Shapes" class="img-fluid ">
+                </div>
+                <div class="col-md-6">
+                    <div class="login-box  p-4 rounded shadow-sm">
+                        <div class="login"><h1 class="mb-3"><b>Login</b></h1>
+                        <p class="mb-4">See your growth and get consulting support!</p></div>
+                        <div id="alert-placeholder"></div>
+                        <form id="loginForm" novalidate>
+                            <div class="form-group">
+                                <label for="username">Username</label>
+                                <input type="text" id="username" name="username" class="form-control" required>
+                                <div class="invalid-feedback">Username must be 8-16 characters long and include at least one uppercase letter, one lowercase letter, one digit, and one special character (#,$,_).</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input type="password" id="password" name="password" class="form-control" required>
+                                <div class="invalid-feedback">Password must be 8-16 characters long and include at least one uppercase letter, one lowercase letter, one digit, and one special character (#,$,_).</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="user-type">User Type*</label>
+                                <select id="user-type" class="form-control" required>
+                                    <option value="" disabled selected>Select your role</option>
+                                    <option value="admin">Admin</option>
+                                    <option value="instructor">Instructor</option>
+                                    <option value="student">Student</option>
+                                </select>
+                            </div>
+                            <div >
+                            <button type="submit" class="login-btn" >Login</button>
+                        </div>
+                        </form>
+                        <p class="forgot-password mt-3" ><a href="../HTML/Forget_pwd.html">Forgot Password?</a></p>
+                        <p class="sign-up mt-3">Don't have an account? <a href="../HTML/Sign_up.html">Sign Up</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><br>
+    
+    <footer>
+        <div class="quick-links">
+            <h2>Quick Links</h2>
+            <div class="card-container">
+                <div class="card">
+                    <a href="#hero">
+                        <h3>Home</h3>
+                        <p>Return to the main page</p>
+                    </a>
+                </div>
+                <div class="card">
+                    <a href="#">
+                        <h3>Courses</h3>
+                        <p>Browse available courses</p>
+                    </a>
+                </div>
+                <div class="card">
+                    <a href="#contact">
+                        <h3>Support</h3>
+                        <p>Get help and support</p>
+                    </a>
+                </div>
+                <div class="card">
+                    <a href="#about">
+                        <h3>About Us</h3>
+                        <p>Learn more about us</p>
+                    </a>
+                </div>
+                <div class="card">
+                    <a href="#contact">
+                        <h3>Contact Us</h3>
+                        <p>Find out how to reach us</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <br>
+        <!-- Social media links -->
+        <div class="social-links">
+            <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+        </div>
+        <br>
+        <div class="footer-copy">
+            <p>&copy; <span id="year"></span> copyright 2024 BrightMind. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // Set current year
+        document.getElementById('year').textContent = new Date().getFullYear();
+    
+        // On page load
+        document.addEventListener('DOMContentLoaded', function () {
+            // Pre-fill stored values (for demo use only)
+            const savedUsername = localStorage.getItem('username');
+            const savedPassword = localStorage.getItem('password');
+    
+            if (savedUsername) document.getElementById('username').value = savedUsername;
+            if (savedPassword) document.getElementById('password').value = savedPassword;
+    
+            document.getElementById('username').addEventListener('input', validateUsername);
+            document.getElementById('password').addEventListener('input', validatePassword);
+        });
+    
+        function validateUsername() {
+            let usernameInput = document.getElementById('username');
+            let usernameValue = usernameInput.value.trim();
+            let usernamePattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$_])[A-Za-z\d#$]{8,16}$/;
+    
+            if (usernamePattern.test(usernameValue)) {
+                usernameInput.classList.remove('is-invalid');
+                usernameInput.classList.add('is-valid');
+            } else {
+                usernameInput.classList.remove('is-valid');
+                usernameInput.classList.add('is-invalid');
+            }
+        }
+    
+        function validatePassword() {
+            let passwordInput = document.getElementById('password');
+            let passwordValue = passwordInput.value.trim();
+            let passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$_])[A-Za-z\d#$]{8,16}$/;
+    
+            if (passwordPattern.test(passwordValue)) {
+                passwordInput.classList.remove('is-invalid');
+                passwordInput.classList.add('is-valid');
+            } else {
+                passwordInput.classList.remove('is-valid');
+                passwordInput.classList.add('is-invalid');
+            }
+        }
+    
+        document.getElementById('loginForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+    
+            validateUsername();
+            validatePassword();
+    
+            let usernameInput = document.getElementById('username');
+            let passwordInput = document.getElementById('password');
+            let userType = document.getElementById('user-type').value;
+    
+            if (usernameInput.classList.contains('is-valid') && passwordInput.classList.contains('is-valid')) {
+                showAlert('Login successful! Redirecting...', 'success');
+                this.classList.add('was-validated');
+    
+                // Store credentials in localStorage (not secure — only for demo)
+                localStorage.setItem('username', usernameInput.value);
+                localStorage.setItem('password', passwordInput.value);
+    
+                let redirectUrl = '';
+                if (userType === 'admin') {
+                    redirectUrl = 'Admin_Dashboard (2).html';
+                } else if (userType === 'instructor') {
+                    redirectUrl = 'Instructor.html';
+                } else if (userType === 'student') {
+                    redirectUrl = 'student.html';
+                }
+    
+                setTimeout(function () {
+                    window.location.href = redirectUrl;
+                }, 2000);
+            } else {
+                this.classList.remove('was-validated');
+            }
+        });
+    
+        function showAlert(message, type) {
+            let alertPlaceholder = document.getElementById('alert-placeholder');
+            let wrapper = document.createElement('div');
+            wrapper.innerHTML = `<div class="alert alert-${type} alert-dismissible fade show" role="alert">
+                                    ${message}
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                 </div>`;
+    
+            alertPlaceholder.append(wrapper);
+    
+            setTimeout(function () {
+                $(wrapper).alert('close');
+            }, 2000);
+        }
+    </script>
+    
+</body>
+</html>

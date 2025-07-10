@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Report - BrightMind</title>
+    <!-- Favicon for the webpage -->
+    <link rel="icon" type="image/x-icon" href="/IMAGES/LMS__1_-removebg-preview.png">
+    <link rel="stylesheet" href="/CSS/report.css">
+    <!-- Font Awesome for icons (assuming you're using it) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* Internal CSS styles can be placed here if needed */
+        .form-container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            font-weight: bold;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        .form-group textarea {
+            height: 150px;
+        }
+
+        .form-group button {
+            background-color: #ff4d6d;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .form-group button:hover {
+            background-color: lightcoral;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="flex">
+           <button id="menu-btn" class="d-md-none">☰</button> <!-- Added toggle button -->
+           <a href="#" class="logo"><b>Admin Dashboard</b></a>
+        </div>
+    </header>
+
+    <aside class="side-bar">
+        <div id="close-btn">
+            <i class="fas fa-times"></i>
+        </div>
+
+        <div class="profile">
+            <img src="/IMAGES/LMS_LEARNING_MANAGEMENT_SYSTEM__1_-removebg-preview.png" alt="Profile Image" class="image">
+            <h3 class="name">BrightMind</h3>
+        </div>
+
+        <nav class="navbar">
+            <a href="/HTML/Admin_Dashboard.html" class="d-block py-2 "><i class="fas fa-home"></i> Home</a>
+            <a href="/HTML/Coursecreate.html" class="d-block py-2 "><i class="fas fa-user"></i> Create course</a>
+            <a href="/HTML/delete.html" class="d-block py-2 "><i class="fas fa-database"></i> View All Courses</a>
+            <a href="/HTML/courselist.html" class="d-block py-2 "><i class="fas fa-book-open"></i> Total Courses</a>
+            <a href="/HTML/Instructorlist.html" class="d-block py-2 "><i class="fas fa-user-graduate"></i> Total Instructor</a>
+            <a href="/HTML/studentlist.html" class="d-block py-2 "><i class="fas fa-address-card"></i> Total Students</a>
+            <a href="/HTML/report.html" class="d-block py-2 "><i class="fas fa-cog"></i> Report</a>
+            <a href="/HTML/logout.html" class="d-block py-2 "><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </nav>
+    </aside>
+
+    <section class="teacher-profile">
+        <div class="details">
+            <div class="tutor">
+                <img src="/IMAGES/admin.png" alt="Tutor Image">
+                <h3>Vishnu</h3>
+                <span>Admin</span>
+            </div>
+        </div>
+    </section>
+
+    <div class="form-container">
+        <h2>Add Report</h2>
+        <form id="add-report-form" action="#" method="POST">
+            <div class="form-group">
+                <label for="course">Course:</label>
+                <input type="text" id="course" name="course" required>
+            </div>
+            <div class="form-group">
+                <label for="instructor">Instructor:</label>
+                <input type="text" id="instructor" name="instructor" required>
+            </div>
+            <div class="form-group">
+                <label for="performance">Performance:</label>
+                <input type="text" id="performance" name="performance" required>
+            </div>
+            <div class="form-group">
+                <label for="details">Details:</label>
+                <textarea id="details" name="details"></textarea>
+            </div>
+            <div class="form-group">
+                <button type="submit">Submit Report</button>
+            </div>
+        </form>
+    </div>
+
+    <footer class="footer">
+        &copy; copyrights 2024 BrightMind. All rights reserved.
+    </footer>
+
+    <script>
+        // JavaScript for toggling sidebar
+        document.getElementById('menu-btn').addEventListener('click', function () {
+           document.querySelector('.side-bar').classList.toggle('active');
+           document.body.classList.toggle('active');
+        });
+     
+        document.getElementById('close-btn').addEventListener('click', function () {
+           document.querySelector('.side-bar').classList.remove('active');
+           document.body.classList.remove('active');
+        });
+    </script>
+</body>
+</html>

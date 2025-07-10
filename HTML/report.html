@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrightMind</title>
+    <!-- Favicon for the webpage -->
+    <link rel="icon" type="image/x-icon" href="/IMAGES/LMS__1_-removebg-preview.png">
+    <link rel="stylesheet" href="/CSS/report.css">
+    <!-- Font Awesome for icons (assuming you're using it) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* Internal CSS styles can be placed here if needed */
+        .view-report .button, .add-report-button {
+            display: block;
+            width: 15%;
+            padding: 10px;
+            margin-top: 20px;
+            text-align: center;
+            background-color: #ff4d6d;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 85%;
+        }
+
+        .view-report .button:hover, .add-report-button:hover {
+            background-color:lightcoral;
+        }
+
+        .add-report-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="flex">
+           <button id="menu-btn" class="d-md-none">☰</button> <!-- Added toggle button -->
+           <a href="#" class="logo"><b>Admin Dashboard</b></a>
+        </div>
+    </header>
+
+    <aside class="side-bar">
+        <div id="close-btn">
+            <i class="fas fa-times"></i>
+        </div>
+
+        <div class="profile">
+            <img src="/IMAGES/LMS_LEARNING_MANAGEMENT_SYSTEM__1_-removebg-preview.png" alt="Profile Image" class="image">
+            <h3 class="name">BrightMind</h3>
+        </div>
+
+        <nav class="navbar">
+            <a href="/HTML/Admin_Dashboard.html" class="d-block py-2 "><i class="fas fa-home"></i> Home</a>
+            <a href="/HTML/Coursecreate.html" class="d-block py-2 "><i class="fas fa-user"></i> Create course</a>
+            <a href="/HTML/delete.html" class="d-block py-2 "><i class="fas fa-database"></i> View All Courses</a>
+            <a href="/HTML/courselist.html" class="d-block py-2 "><i class="fas fa-book-open"></i> Total Courses</a>
+            <a href="/HTML/Instructorlist.html" class="d-block py-2 "><i class="fas fa-user-graduate"></i> Total Instructor</a>
+            <a href="/HTML/studentlist.html" class="d-block py-2 "><i class="fas fa-address-card"></i> Total Students</a>
+            <a href="/HTML/report.html" class="d-block py-2 "><i class="fas fa-cog"></i> Report</a>
+            <a href="/HTML/logout.html" class="d-block py-2 "><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </nav>
+    </aside>
+
+    <section class="teacher-profile">
+        <div class="details">
+            <div class="tutor">
+                <img src="/IMAGES/admin.png" alt="Tutor Image">
+                <h3>Vishnu</h3>
+                <span>Admin</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Report Section -->
+    <div class="report-section">
+        <div class="title">Report Section</div>
+        <div class="report-cards">
+            <div class="report-card">
+                <div class="card-content">Detailed report of the instructors</div>
+                <div class="card-footer">
+                </div>
+            </div>
+            <!-- More report cards can be added similarly -->
+        </div>
+    </div>
+
+    <!-- View Report 1 -->
+    <section class="view-report">
+        <div class="title">View Report 1</div>
+        <div class="report-content">
+            <div class="report">
+                <h3>Instructor Performance Report</h3>
+                <p>Course: Python Programming</p>
+                <p>Instructor: Jane Doe</p>
+                <p>Performance: Excellent</p>
+            </div>
+            <button class="button">Download Report</button>
+        </div>
+    </section>
+
+    <!-- View Report 2 -->
+    <section class="view-report">
+        <div class="title">View Report 2</div>
+        <div class="report-content">
+            <div class="report">
+                <h3>Instructor Performance Report</h3>
+                <p>Course: C</p>
+                <p>Instructor: John</p>
+                <p>Performance: Good</p>
+            </div>
+            <button class="button">Download Report</button>
+        </div>
+    </section>
+
+    <!-- View Report 3 -->
+    <section class="view-report">
+        <div class="title">View Report 3</div>
+        <div class="report-content">
+            <div class="report">
+                <h3>Instructor Performance Report</h3>
+                <p>Course: Java Programming</p>
+                <p>Instructor: Smith</p>
+                <p>Performance: Excellent</p>
+            </div>
+            <button class="button">Download Report</button>
+        </div>
+    </section>
+
+    <!-- View Report 4 -->
+    <section class="view-report">
+        <div class="title">View Report 4</div>
+        <div class="report-content">
+            <div class="report">
+                <h3>Instructor Performance Report</h3>
+                <p>Course: JavaScript Fundamentals</p>
+                <p>Instructor: Emily Brown</p>
+                <p>Performance: Very Good</p>
+            </div>
+            <button class="button">Download Report</button>
+        </div>
+    </section>
+
+    <!-- Add Report Button -->
+    <div class="add-report-container">
+        <a href="/HTML/Addreport.html"><button class="add-report-button">Add Report</button></a>
+    </div>
+
+    <footer class="footer">
+        &copy; copyrights 2024 BrightMind. All rights reserved.
+    </footer>
+
+    <script>
+        // JavaScript for toggling sidebar
+        document.getElementById('menu-btn').addEventListener('click', function () {
+           document.querySelector('.side-bar').classList.toggle('active');
+           document.body.classList.toggle('active');
+        });
+     
+        document.getElementById('close-btn').addEventListener('click', function () {
+           document.querySelector('.side-bar').classList.remove('active');
+           document.body.classList.remove('active');
+        });
+    </script>
+</body>
+</html>

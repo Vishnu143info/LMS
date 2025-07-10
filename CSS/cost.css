@@ -1,0 +1,589 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f0f2;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 1px; /* Added padding to the body */
+}
+
+header {
+    background: linear-gradient(to right,#ff4d6d,#ff4d6d);
+    color: #fff;
+    padding: 1rem 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    transition: background 0.3s, box-shadow 0.3s;
+    height: 10%;
+    border-radius:10px ;
+    overflow: hidden;
+}
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin-left: 70%;
+}
+header .nav-links {
+    list-style: none;
+    display: flex;
+    padding-right: 100%;
+
+}
+
+
+header .nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    transition: background 0.3s, color 0.3s, transform 0.3s;
+    border-radius: 5px;
+    
+}
+
+header .nav-links a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+}
+
+
+header .logo {
+    display: flex;
+    align-items: center;
+}
+
+header .logo img {
+    width: 80px;
+    height: 80px;
+    margin-right: 10px;
+    margin-top: -1%;
+}
+
+header .logo span {
+    font-size: 1.8rem;
+    font-weight: 700;
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+    transition: color 0.3s;
+}
+
+
+/* Main Content */
+main {
+    padding: 20px 0;
+    background: whitesmoke;
+}
+
+.course-overview {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.course-overview h1 {
+    margin-bottom: 40px;
+    font-size: 2.5rem;
+    color: #333;
+}
+
+.course-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.course-card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.course-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+}
+
+.course-img {
+    width: 70%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.course-content {
+    padding: 20px;
+    text-align: center;
+}
+
+.course-content h2 {
+    font-size: 1.5rem;
+    margin: 10px 0;
+}
+
+.course-description {
+    margin: 10px 0;
+    color: #555;
+}
+
+.course-info {
+    margin: 10px 0;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.course-info p {
+    margin: 5px 0;
+}
+
+.open-modal {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color:  #ff4d6d;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.open-modal:hover {
+    background-color: pink;
+    transform: translateY(-2px);
+}
+
+/* Special Offers */
+.special-offers {
+    padding: 50px 20px;
+    background: #fff;
+}
+
+.special-offers h3 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2rem;
+    color: #333;
+}
+
+.offer-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.offer-card {
+    background: #f7f7f7;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.offer-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Secure Checkout 
+.checkout {
+    padding: 50px 20px;
+    background: #e2e2ec;
+}
+
+.checkout h3 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2rem;
+    color: #333;
+}
+
+.checkout-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    justify-content: center;
+    text-align: center;
+}
+
+.checkout-grid p {
+    margin: 0;
+}*/
+
+.btn-enroll {
+    background-color: #ff4d6d;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-enroll:hover {
+    background-color: pink;
+}
+
+/* Additional Information */
+.additional-info {
+    padding: 50px 20px;
+}
+
+.additional-info h3 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2rem;
+    color: #333;
+}
+
+.info-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.info-card {
+    background: #f7f7f7;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.info-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Testimonials */
+.testimonials {
+    padding: 50px 20px;
+    background: #e6e6fa;
+}
+
+.testimonials h3 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2rem;
+    color: #333;
+}
+
+.testimonial-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    
+}
+
+.testimonial-card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+}
+
+.testimonial-card p {
+    font-style: italic;
+    color: #555;
+}
+
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+    align-items: center;
+    justify-content: center;
+}
+
+.modal:target {
+    display: flex;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 600px;
+    position: relative;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 24px;
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.close:hover {
+    color: #ff4d6d;
+}
+.checkout a{
+    color: #f5f0f2;
+    text-decoration: none;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+/* Quick Links Styles */
+.quick-links {
+    margin-top: 0;
+}
+.quick-links h2 {
+    color:  #ff4d6d;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+.card {
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    width: 200px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.card h3 {
+    margin: 0;
+    color: #333;
+}
+.card p {
+    margin: 10px 0 0;
+    color: #666;
+}
+.card a {
+    text-decoration: none;
+    color: inherit;
+}
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+/* Footer Styles */
+footer {
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+footer .social-links {
+    margin-bottom: 1rem;
+}
+
+footer .social-links a {
+    color: #fff;
+    margin: 0 0.5rem;
+    text-decoration: none;
+    font-size: 1.5rem;
+    transition: color 0.3s;
+}
+
+footer .social-links a:hover {
+    color: #ff4d6d;
+}
+/* Footer styling */
+footer {
+    color: #ccc;
+    padding: 2rem 1.5rem;
+    text-align: center;
+}
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 200px;
+    margin: 0 1rem;
+    
+    
+}
+
+.footer-section h4 {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    color: #fff;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-section ul li a {
+    color: #bbb;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-section ul li a:hover {
+    color: #fff;
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-section {
+        margin: 1rem 0;
+    }
+}
+
+/* Fixed Footer */
+footer {
+
+    bottom: 0;
+    left: 0;
+    height: 5.5%;
+    width: 100%;
+    background: #0c0d1a;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+    font-family: 'Poppins', sans-serif; /* Updated to use Poppins */
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+}
+
+footer p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+footer a {
+    color: #ff4d6d;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+footer a:hover {
+    color: #f06b8c;
+}
+/* Checkout Section Styling */
+.checkout {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 300px;
+    text-align: center;
+    margin: 20px auto;
+}
+
+.checkout h3 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.checkout-grid {
+    display: grid;
+    grid-gap: 15px;
+    align-items: center;
+}
+
+/* Dropdown Styling */
+.checkout label {
+    display: block;
+    color: #555;
+    text-align: left;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.checkout select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 14px;
+    background-color: #f9f9f9;
+    cursor: pointer;
+}
+
+.checkout select:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Button Styling */
+.checkout input[type="submit"] {
+    width: 100%;
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.checkout input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Media Query for Responsiveness */
+@media (max-width: 600px) {
+    .checkout {
+        width: 90%;
+    }
+}

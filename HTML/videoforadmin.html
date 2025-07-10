@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrightMind</title>
+    <!-- Favicon for the webpage -->
+    <link rel="icon" type="image/x-icon" href="/IMAGES/LMS__1_-removebg-preview.png">
+    <link rel="stylesheet" href="/CSS/video.css">
+</head>
+<body>
+    <header class="header">
+        <div class="flex">
+            <button id="menu-btn" class="d-md-none">☰</button>
+            <a href="#" class="logo"><b>Admin Dashboard</b></a>
+        </div>
+    </header>
+
+    <aside class="side-bar">
+        <div id="close-btn">
+            <i class="fas fa-times"></i>
+        </div>
+
+        <div class="profile">
+            <img src="/IMAGES/LMS_LEARNING_MANAGEMENT_SYSTEM__1_-removebg-preview.png" alt="Profile Image" class="image">
+            <h3 class="name">BrightMind</h3>
+        </div>
+
+        <nav class="navbar">
+            <a href="/HTML/Admin_Dashboard.html" class="d-block py-2 "><i class="fas fa-home"></i> Home</a>
+            <a href="/HTML/Coursecreate.html" class="d-block py-2 "><i class="fas fa-user"></i> Create course</a>
+            <a href="/HTML/delete.html" class="d-block py-2 "><i class="fas fa-database"></i> View All Courses</a>
+            <a href="/HTML/courselist.html" class="d-block py-2 "><i class="fas fa-book-open"></i> Total Courses</a>
+            <a href="/HTML/Instructorlist.html" class="d-block py-2 "><i class="fas fa-user-graduate"></i> Total Instructor</a>
+            <a href="/HTML/studentlist.html" class="d-block py-2 "><i class="fas fa-address-card"></i> Total Students</a>
+            <a href="/HTML/report.html" class="d-block py-2 "><i class="fas fa-cog"></i> Report</a>
+            <a href="/HTML/logout.html" class="d-block py-2 "><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+        <section class="video-player">
+            <h2> Course - Introduction</h2>
+            <video controls>
+                <source src="/videos/python_intro.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </section>
+
+        <aside class="playlist">
+            <h3>Playlist</h3>
+            <ul>
+                <li><a href="/videos/python_intro.mp4">Introduction</a></li>
+                <li><a href="/videos/python_basics.mp4"> Basics</a></li>
+                <li><a href="/videos/python_data_types.mp4">Data Types</a></li>
+                <li><a href="/videos/python_control_structures.mp4">Control Structures</a></li>
+                <li><a href="/videos/python_functions.mp4">Functions</a></li>
+                <li><a href="/videos/python_oop.mp4">Object-Oriented Programming</a></li>
+                <li><a href="/videos/python_modules.mp4">Modules and Packages</a></li>
+                <li><a href="/videos/python_exceptions.mp4">Exception Handling</a></li>
+                <li><a href="/videos/python_file_io.mp4">File I/O</a></li>
+                <li><a href="/videos/python_libraries.mp4">Libraries and Frameworks</a></li>
+            </ul>
+        </aside>
+    </main>
+    <footer class="footer">
+        &copy; copyrights 2024 BrightMind. All rights reserved.
+    </footer>
+    <script>
+                                // JavaScript for toggling sidebar
+                                document.getElementById('menu-btn').addEventListener('click', function () {
+           document.querySelector('.side-bar').classList.toggle('active');
+           document.body.classList.toggle('active');
+        });
+     
+        document.getElementById('close-btn').addEventListener('click', function () {
+           document.querySelector('.side-bar').classList.remove('active');
+           document.body.classList.remove('active');
+        });
+
+    </script>
+</body>
+</html>

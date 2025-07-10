@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Add New Instructor - BrightMind</title>
+   <link rel="icon" type="image/x-icon" href="/IMAGES/LMS__1_-removebg-preview.png">
+   <link rel="stylesheet" href="/CSS/Admin_dashboard.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+   <style>
+      /* Form styling */
+      .form-container {
+         max-width: 600px;
+         margin: 50px auto;
+         padding: 20px;
+         background-color: #f7f7f7;
+         border-radius: 8px;
+         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .form-container h1 {
+         text-align: center;
+         margin-bottom: 20px;
+      }
+
+      .form-group {
+         margin-bottom: 15px;
+      }
+
+      .form-group label {
+         display: block;
+         margin-bottom: 5px;
+         font-weight: bold;
+      }
+
+      .form-group input,
+      .form-group select {
+         width: 100%;
+         padding: 10px;
+         border-radius: 4px;
+         border: 1px solid #ccc;
+         font-size: 1rem;
+      }
+
+      .form-group button {
+         width: 100%;
+         padding: 10px;
+         background-color: #ff4d6d;
+         color: white;
+         border: none;
+         border-radius: 4px;
+         font-size: 1.2rem;
+         cursor: pointer;
+         transition: background-color 0.3s ease;
+      }
+
+      .form-group button:hover {
+         background-color: lightcoral;
+      }
+   </style>
+</head>
+<body>
+   <header class="header">
+      <div class="flex">
+         <button id="menu-btn" class="d-md-none">☰</button> <!-- Added toggle button -->
+         <a href="#" class="logo"><b>Admin Dashboard</b></a>
+      </div>
+   </header>
+
+   <section>
+      <aside class="side-bar bg-primary text-white p-3 position-fixed vh-100">
+         <div id="close-btn" class="d-md-none text-end">
+            <i class="fas fa-times text-white fs-4"></i>
+         </div>
+
+         <div class="profile text-center my-4">
+            <img src="/IMAGES/LMS_LEARNING_MANAGEMENT_SYSTEM__1_-removebg-preview.png" alt="Profile Image" class="image img-fluid rounded-circle mb-3">
+            <h3 class="name h4">BrightMind</h3>
+         </div>
+
+         <nav class="navbar">
+            <a href="/HTML/Admin_Dashboard.html" class="d-block py-2 "><i class="fas fa-home"></i> Home</a>
+            <a href="/HTML/Coursecreate.html" class="d-block py-2 "><i class="fas fa-user"></i> Create course</a>
+            <a href="/HTML/delete.html" class="d-block py-2 "><i class="fas fa-database"></i> View All Courses</a>
+            <a href="/HTML/courselist.html" class="d-block py-2 "><i class="fas fa-book-open"></i> Total Courses</a>
+            <a href="/HTML/Instructorlist.html" class="d-block py-2 "><i class="fas fa-user-graduate"></i> Total Instructor</a>
+            <a href="/HTML/studentlist.html" class="d-block py-2 "><i class="fas fa-address-card"></i> Total Students</a>
+            <a href="/HTML/report.html" class="d-block py-2 "><i class="fas fa-cog"></i> Report</a>
+            <a href="/HTML/logout.html" class="d-block py-2 "><i class="fas fa-sign-out-alt"></i> Logout</a>
+         </nav>
+      </aside>
+   </section>
+
+   <main class="form-container">
+      <h1>Add New Instructor</h1>
+      <form id="addInstructorForm">
+         <div class="form-group">
+            <label for="instructorId">Instructor ID</label>
+            <input type="text" id="instructorId" name="instructorId" required>
+         </div>
+         <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+         </div>
+         <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+         </div>
+         <div class="form-group">
+            <label for="course">Course Assigned</label>
+            <select id="course" name="course" required>
+               <option value="Python Programming">Python Programming</option>
+               <option value="Java Development">Java Development</option>
+               <option value="Web Design">Web Design</option>
+               <!-- Add more courses as needed -->
+            </select>
+         </div>
+         <div class="form-group">
+            <label for="hireDate">Hire Date</label>
+            <input type="date" id="hireDate" name="hireDate" required>
+         </div>
+         <div class="form-group">
+            <button type="submit">Add Instructor</button>
+         </div>
+      </form>
+   </main>
+
+   <script>
+      document.getElementById('addInstructorForm').addEventListener('submit', function(e) {
+         e.preventDefault();
+         
+         // Collect form data
+         const instructorId = document.getElementById('instructorId').value;
+         const name = document.getElementById('name').value;
+         const email = document.getElementById('email').value;
+         const course = document.getElementById('course').value;
+         const hireDate = document.getElementById('hireDate').value;
+
+         // Create an instructor object
+         const instructor = {
+            id: instructorId,
+            name: name,
+            email: email,
+            course: course,
+            hireDate: hireDate
+         };
+
+         // Retrieve existing instructors from local storage
+         let instructors = JSON.parse(localStorage.getItem('instructors')) || [];
+
+         // Add the new instructor to the array
+         instructors.push(instructor);
+
+         // Store the updated array back in local storage
+         localStorage.setItem('instructors', JSON.stringify(instructors));
+
+         // Redirect to the instructor list page
+         window.location.href = '/HTML/InstructorList.html';
+      });
+   </script>
+
+   <script>
+      // JavaScript for toggling sidebar
+      document.getElementById('menu-btn').addEventListener('click', function () {
+         document.querySelector('.side-bar').classList.toggle('active');
+         document.body.classList.toggle('active');
+      });
+
+      document.getElementById('close-btn').addEventListener('click', function () {
+         document.querySelector('.side-bar').classList.remove('active');
+         document.body.classList.remove('active');
+      });
+   </script>
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>BrightMind</title>
+   <!-- Favicon for the webpage -->
+   <link rel="icon" type="image/x-icon" href="/IMAGES/LMS__1_-removebg-preview.png">
+   <link rel="stylesheet" href="/CSS/Admin_dashboard.css">
+</head>
+<body>
+   <header class="header">
+      <div class="flex">
+         <button id="menu-btn" class="d-md-none">☰</button> <!-- Added toggle button -->
+         <a href="#" class="logo"><b>Admin Dashboard</b></a>
+
+         <form action="" class="search-form">
+            <input type="text" name="search" placeholder="Search...">
+            <button type="submit">🔍</button>
+         </form>
+      </div>
+   </header>
+
+<section>
+   <aside class="side-bar bg-primary text-white p-3 position-fixed vh-100">
+      <div id="close-btn" class="d-md-none text-end">
+         <i class="fas fa-times text-white fs-4"></i>
+      </div>
+   
+      <div class="profile text-center my-4">
+         <img src="/IMAGES/LMS_LEARNING_MANAGEMENT_SYSTEM__1_-removebg-preview.png" alt="Profile Image" class="image img-fluid rounded-circle mb-3">
+         <h3 class="name h4">BrightMind</h3>
+      </div>
+   
+      <nav class="navbar">
+         <a href="/HTML/Admin_Dashboard.html" class="d-block py-2 "><i class="fas fa-home"></i> Home</a>
+         <a href="/HTML/Coursecreate.html" class="d-block py-2 "><i class="fas fa-user"></i> Create course</a>
+         <a href="/HTML/delete.html" class="d-block py-2 "><i class="fas fa-database"></i> View All Courses</a>
+         <a href="/HTML/courselist.html" class="d-block py-2 "><i class="fas fa-book-open"></i> Total Courses</a>
+         <a href="/HTML/Instructorlist.html" class="d-block py-2 "><i class="fas fa-user-graduate"></i> Total Instructor</a>
+         <a href="/HTML/studentlist.html" class="d-block py-2 "><i class="fas fa-address-card"></i> Total Students</a>
+         <a href="/HTML/report.html" class="d-block py-2 "><i class="fas fa-cog"></i> Report</a>
+         <a href="/HTML/logout.html" class="d-block py-2 "><i class="fas fa-sign-out-alt"></i> Logout</a>
+      </nav>
+   </aside>
+</section>	
+
+<section class="teacher-profile">
+   <div class="details">
+      <div class="tutor">
+         <img src="/IMAGES/admin.png" alt="Tutor Image">
+         <h3>Vishnu</h3>
+         <span>Admin</span>
+      </div>
+   </div>
+</section>
+
+<section class="admin-dashboard">
+   <div class="overview-boxes">
+     <div class="box" onclick="showStudentList()">
+         <div class="right-side">
+            <div class="box-topic">Total Students</div>
+            <div class="number">1,204</div>
+            <div class="indicator">
+               <i class="fas fa-arrow-up"></i>
+               <span class="text">Up from last month</span>
+            </div>
+         </div>
+         <i class="fas fa-user-graduate"></i>
+      </div>
+
+      <div class="box" onclick="showCourseList()">
+         <div class="right-side">
+            <div class="box-topic">Total Courses</div>
+            <div class="number">80</div>
+            <div class="indicator">
+               <i class="fas fa-arrow-up"></i>
+               <span class="text">Up from last month</span>
+            </div>
+         </div>
+         <i class="fas fa-book"></i>
+      </div>
+
+      <div class="box" onclick="showInstructorList()">
+         <div class="right-side">
+            <div class="box-topic">Total Instructors</div>
+            <div class="number">50</div>
+            <div class="indicator">
+               <i class="fas fa-arrow-up"></i>
+               <span class="text">Up from last month</span>
+            </div>
+         </div>
+         <i class="fas fa-chalkboard-teacher"></i>
+      </div>
+
+      <div class="box">
+         <div class="right-side">
+            <div class="box-topic">Total Earnings</div>
+            <div class="number">$12,000</div>
+            <div class="indicator">
+               <i class="fas fa-arrow-up"></i>
+               <span class="text">Up from last month</span>
+            </div>
+         </div>
+         <i class="fas fa-dollar-sign"></i>
+      </div>
+   </div>
+</section>
+
+<div class="recent-activity">
+   <div class="title">Recent Activity</div>
+   <ul>
+      <li><i class="fas fa-user-plus"></i> New student registration</li>
+      <li><i class="fas fa-book-open"></i> New course added</li>
+      <li><i class="fas fa-user-check"></i> Tutor approved</li>
+      <li><i class="fas fa-dollar-sign"></i> Payment received</li>
+   </ul>
+</div>
+
+<div class="course-management">
+   <div class="title">Course Management</div>
+   <div class="course-actions">
+      <button class="btn"><a href="/HTML/delete.html">View All Courses</a></button>
+   </div>
+   <div class="courses">
+      <div class="course">
+         <div class="course-info">
+            <h3>Python Programming</h3>
+            <p>Instructor: Jane Doe</p>
+         </div>
+         <div class="course-actions">
+            <button class="btn"><a href="/HTML/Courseedit.html">Edit</a></button>
+         </div>
+      </div>
+
+      <div class="course">
+         <div class="course-info">
+            <h3>Java Development</h3>
+            <p>Instructor: John Smith</p>
+         </div>
+         <div class="course-actions">
+            <button class="btn"><a href="/HTML/Courseedit.html">Edit</a></button>
+         </div>
+      </div>
+      <!-- More courses can be added here -->
+       
+   </div>
+</div>
+
+<footer class="footer">
+   &copy; copyrights 2024 BrightMind. All rights reserved.
+</footer>
+
+<script>
+   // JavaScript for toggling sidebar
+   document.getElementById('menu-btn').addEventListener('click', function () {
+      document.querySelector('.side-bar').classList.toggle('active');
+      document.body.classList.toggle('active');
+   });
+
+   document.getElementById('close-btn').addEventListener('click', function () {
+      document.querySelector('.side-bar').classList.remove('active');
+      document.body.classList.remove('active');
+   });
+
+   // JavaScript functions for navigating to lists
+   function showStudentList() {
+      window.location.href = "/HTML/StudentList.html";  // Replace with the actual path to your student list page
+   }
+
+   function showCourseList() {
+      window.location.href = "/HTML/courselist.html";  // Replace with the actual path to your course list page
+   }
+
+   function showInstructorList() {
+      window.location.href = "/HTML/Instructorlist.html";  // Replace with the actual path to your instructor list page
+   }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>BrightMind - Courses</title>
+   <!-- Favicon for the webpage -->
+   <link rel="icon" type="image/x-icon" href="/IMAGES/LMS__1_-removebg-preview.png">
+   <link rel="stylesheet" href="/CSS/Admin_dashboard.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+   <style>
+      /* Table styling */
+      table {
+         width: 100%;
+         border-collapse: collapse;
+         margin: 25px 0;
+         font-size: 1.6rem; /* Increased font size */
+         font-family: 'Arial', sans-serif;
+         box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      }
+
+      table thead tr {
+         background-color: #ff4d6d; /* Sidebar background color */
+         color: #ffffff;
+         text-align: left;
+      }
+
+      table th, table td {
+         padding: 12px 11px;
+         border-bottom: 1px solid #e0e0e0;
+      }
+
+      table tbody tr:nth-of-type(even) {
+         background-color: #f7f7f7;
+      }
+
+      table tbody tr:hover {
+         background-color: #e9f5ff; /* Light highlight on hover */
+         cursor: pointer;
+      }
+
+      table tbody tr:last-of-type td {
+         border-bottom: none;
+      }
+
+      /* Icon button styling */
+      .icon-btn i {
+         background: none;
+         border: none;
+         color: #ff4d6d; /* Sidebar background color */
+         font-size: 20px;
+         cursor: pointer;
+         transition: color 0.3s ease;
+      }
+
+      .icon-btn:hover {
+         color:lightcoral;
+      }
+
+      .icon-btn:focus {
+         outline: none;
+      }
+      .list h1 {
+         text-align: center;
+      }
+      .add-btn {
+         background-color: #ff4d6d;
+         color: #fff;
+         padding: 10px 20px;
+         border: none;
+         cursor: pointer;
+         border-radius: 5px;
+         font-size: 1.6rem;
+         margin-left: 85%;
+         display: inline-block;
+      }
+      .add-btn:hover {
+         background-color: lightcoral;
+      }
+         /* Modal styles */
+   .modal {
+      display: none; 
+      position: fixed; 
+      z-index: 1; 
+      left: 0;
+      top: 0;
+      width: 100%; 
+      height: 100%; 
+      overflow: auto; 
+      background-color: rgba(0, 0, 0, 0.5); 
+   }
+
+   .modal-content {
+      background-color: #fefefe;
+      margin: 15% auto; 
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%; 
+      max-width: 400px; 
+      text-align: center;
+      border-radius: 10px;
+   }
+
+   .modal-btn {
+      margin: 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+   }
+
+   .modal-btn.confirm {
+      background-color: #ff4d6d;
+      color: white;
+   }
+
+   .modal-btn.cancel {
+      background-color: grey;
+      color: white;
+   }
+
+   .modal-btn.confirm:hover {
+      background-color: lightcoral;
+   }
+
+   .modal-btn.cancel:hover {
+      background-color: darkgrey;
+   }
+   </style>
+</head>
+<body>
+   <header class="header">
+      <div class="flex">
+         <button id="menu-btn" class="d-md-none">☰</button> <!-- Added toggle button -->
+         <a href="#" class="logo"><b>Admin Dashboard</b></a>
+
+         <form action="" class="search-form">
+            <input type="text" name="search" placeholder="Search...">
+            <button type="submit">🔍</button>
+         </form>
+      </div>
+   </header>
+
+   <section>
+      <aside class="side-bar bg-primary text-white p-3 position-fixed vh-100">
+         <div id="close-btn" class="d-md-none text-end">
+            <i class="fas fa-times text-white fs-4"></i>
+         </div>
+      
+         <div class="profile text-center my-4">
+            <img src="/IMAGES/LMS_LEARNING_MANAGEMENT_SYSTEM__1_-removebg-preview.png" alt="Profile Image" class="image img-fluid rounded-circle mb-3">
+            <h3 class="name h4">BrightMind</h3>
+         </div>
+      
+         <nav class="navbar">
+            <a href="/HTML/Admin_Dashboard.html" class="d-block py-2 "><i class="fas fa-home"></i> Home</a>
+            <a href="/HTML/Coursecreate.html" class="d-block py-2 "><i class="fas fa-user"></i> Create course</a>
+            <a href="/HTML/delete.html" class="d-block py-2 "><i class="fas fa-database"></i> View All Courses</a>
+            <a href="/HTML/courselist.html" class="d-block py-2 "><i class="fas fa-book-open"></i> Total Courses</a>
+            <a href="/HTML/Instructorlist.html" class="d-block py-2 "><i class="fas fa-user-graduate"></i> Total Instructor</a>
+            <a href="/HTML/studentlist.html" class="d-block py-2 "><i class="fas fa-address-card"></i> Total Students</a>
+            <a href="/HTML/report.html" class="d-block py-2 "><i class="fas fa-cog"></i> Report</a>
+            <a href="/HTML/logout.html" class="d-block py-2 "><i class="fas fa-sign-out-alt"></i> Logout</a>
+         </nav>
+      </aside>
+   </section>
+<!-- Delete Confirmation Modal -->
+<div id="deleteModal" class="modal">
+   <div class="modal-content">
+      <h2>Confirm Deletion</h2>
+      <p>Are you sure you want to delete this course?</p>
+      <button id="confirmDelete" class="modal-btn confirm">Yes, Delete</button>
+      <button id="cancelDelete" class="modal-btn cancel">Cancel</button>
+   </div>
+</div>
+   <!-- Main Content -->
+   <main class="list">
+      <h1>List of Courses</h1>
+      <a href="/HTML/cadd.html"><button class="add-btn" onclick="addCourse()">+ Add Course</button></a>
+      <table>
+         <thead>
+            <tr>
+               <th>Course ID</th>
+               <th>Course Name</th>
+               <th>Instructor</th>
+               <th>Duration</th>
+               <th>Start Date</th>
+               <th>Actions</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr>
+               <td>101</td>
+               <td>Python Programming</td>
+               <td>Rahul Sharma</td>
+               <td>12 Weeks</td>
+               <td>2024-01-15</td>
+               <td>
+                  <button class="icon-btn" onclick="editCourse('101')">
+                    <a href="/HTML/cedit.html"><i class="fas fa-edit"></i></a>
+                  </button>
+                  <button class="icon-btn" onclick="deleteCourse('101')">
+                     <i class="fas fa-trash-alt"></i>
+                  </button>
+               </td>
+            </tr>
+            <tr>
+               <td>102</td>
+               <td>Java Development</td>
+               <td>Anjali Gupta</td>
+               <td>10 Weeks</td>
+               <td>2024-02-10</td>
+               <td>
+                  <button class="icon-btn" onclick="editCourse('102')">
+                     <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="icon-btn" onclick="deleteCourse('102')">
+                     <i class="fas fa-trash-alt"></i>
+                  </button>
+               </td>
+            </tr>
+            <tr>
+               <td>103</td>
+               <td>Web Design</td>
+               <td>Vikram Patel</td>
+               <td>8 Weeks</td>
+               <td>2024-03-05</td>
+               <td>
+                  <button class="icon-btn" onclick="editCourse('103')">
+                     <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="icon-btn" onclick="deleteCourse('103')">
+                     <i class="fas fa-trash-alt"></i>
+                  </button>
+               </td>
+            </tr>
+            <tr>
+               <td>104</td>
+               <td>Data Science</td>
+               <td>Sneha Reddy</td>
+               <td>15 Weeks</td>
+               <td>2024-04-12</td>
+               <td>
+                  <button class="icon-btn" onclick="editCourse('104')">
+                     <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="icon-btn" onclick="deleteCourse('104')">
+                     <i class="fas fa-trash-alt"></i>
+                  </button>
+               </td>
+            </tr>
+            <tr>
+               <td>105</td>
+               <td>Cloud Computing</td>
+               <td>Amitabh Mishra</td>
+               <td>10 Weeks</td>
+               <td>2024-05-08</td>
+               <td>
+                  <button class="icon-btn" onclick="editCourse('105')">
+                     <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="icon-btn" onclick="deleteCourse('105')">
+                     <i class="fas fa-trash-alt"></i>
+                  </button>
+               </td>
+            </tr>
+            <tr>
+               <td>106</td>
+               <td>Machine Learning</td>
+               <td>Siva K</td>
+               <td>14 Weeks</td>
+               <td>2024-06-20</td>
+               <td>
+                  <button class="icon-btn" onclick="editCourse('106')">
+                     <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="icon-btn" onclick="deleteCourse('106')">
+                     <i class="fas fa-trash-alt"></i>
+                  </button>
+               </td>
+            </tr>
+            <tr>
+                <td>107</td>
+                <td>Cloud Computing</td>
+                <td>Amitabh Mishra</td>
+                <td>8 Weeks</td>
+                <td>2024-05-08</td>
+                <td>
+                   <button class="icon-btn" onclick="editCourse('105')">
+                      <i class="fas fa-edit"></i>
+                   </button>
+                   <button class="icon-btn" onclick="deleteCourse('105')">
+                      <i class="fas fa-trash-alt"></i>
+                   </button>
+                </td>
+             </tr>
+             <tr>
+                <td>108</td>
+                <td>Cloud Computing</td>
+                <td>Amitabh Mishra</td>
+                <td>14 Weeks</td>
+                <td>2024-05-08</td>
+                <td>
+                   <button class="icon-btn" onclick="editCourse('105')">
+                      <i class="fas fa-edit"></i>
+                   </button>
+                   <button class="icon-btn" onclick="deleteCourse('105')">
+                      <i class="fas fa-trash-alt"></i>
+                   </button>
+                </td>
+             </tr>
+            <!-- Add more course rows as needed -->
+         </tbody>
+      </table>
+   </main>
+
+   <!-- Footer Section -->
+   <footer class="footer">
+    &copy; copyrights 2024 BrightMind. All rights reserved.
+   </footer>
+ 
+   <script>
+      function addCourse() {
+         // Redirect to add course page
+         window.location.href = "/HTML/cadd.html";
+      }
+
+      function editCourse(courseId) {
+         // Redirect to edit course page
+         window.location.href = "/HTML/cedit.html?id=" + courseId;
+      }
+
+      function deleteCourse(courseId) {
+         // Confirm before deleting
+         if (confirm("Are you sure you want to delete this course?")) {
+            // Perform delete operation
+            console.log("Deleted course with ID:", courseId);
+         }
+      }
+
+         // JavaScript for toggling sidebar
+   document.getElementById('menu-btn').addEventListener('click', function () {
+      document.querySelector('.side-bar').classList.toggle('active');
+      document.body.classList.toggle('active');
+   });
+
+   document.getElementById('close-btn').addEventListener('click', function () {
+      document.querySelector('.side-bar').classList.remove('active');
+      document.body.classList.remove('active');
+   });
+
+   function deleteCourse(courseId) {
+   // Show the modal
+   var modal = document.getElementById("deleteModal");
+   modal.style.display = "block";
+
+   // When the user clicks on "Yes, Delete"
+   document.getElementById("confirmDelete").onclick = function () {
+      // Perform delete operation
+      console.log("Deleted course with ID:", courseId);
+      modal.style.display = "none";
+   };
+
+   // When the user clicks on "Cancel"
+   document.getElementById("cancelDelete").onclick = function () {
+      modal.style.display = "none";
+   };
+
+   // If the user clicks anywhere outside of the modal, close it
+   window.onclick = function(event) {
+      if (event.target == modal) {
+         modal.style.display = "none";
+      }
+   };
+}
+   </script>
+</body>
+</html>

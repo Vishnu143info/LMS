@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrightMind</title>
+    <!-- Favicon for the webpage -->
+    <link rel="icon" type="image/x-icon" href="/IMAGES/LMS__1_-removebg-preview.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="/CSS/reportins.css">
+
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="flex">
+            <div class="logo"><b>John Doe</b></div>
+        </div>
+    </header>
+
+    <!-- Sidebar Section -->
+    <div class="side-bar">
+        <div class="profile">
+            <img src="/IMAGES/LMS_LEARNING_MANAGEMENT_SYSTEM__1_-removebg-preview.png" class="image" alt="Profile Picture">
+            <h3 class="name">BrightMind</h3>
+        </div>
+        <nav class="navbar">
+            <a href="/HTML/Instructor.html"><i class="fas fa-home"></i><span>Home</span></a>
+            <a href="/HTML/Manage.html"><i class="fas fa-cog"></i><span>Manage Course</span></a>
+            <a href="/HTML/reportins.html"><i class="fas fa-cog"></i><span>Report</span></a>
+            <a href="/HTML/inslogout.html"><i class="fas fa-sign-out-alt"></i><span>Logout</span></a>
+        </nav>
+    </div>
+
+    
+        <section id="report-section" class="report-section">
+            <div class="title">Report Section</div>
+            <div class="report-list">
+                <div class="report-item">
+                    <div class="report-info">
+                        <h3>Report Title 1</h3>
+                        <p>Report description goes here...</p>
+                    </div>
+                    <div class="report-actions">
+                        <button class="btn view-btn"><a href="/HTML/reportpageins.html">View</a></button>
+                    </div>
+                </div>
+                <div class="report-item">
+                    <div class="report-info">
+                        <h3>Report Title 2</h3>
+                        <p>Report description goes here...</p>
+                    </div>
+                    <div class="report-actions">
+                        <button class="btn view-btn"><a href="/HTML/reportpageins.html">View</a></button>
+                    </div>
+                </div>
+                <div class="report-item">
+                    <div class="report-info">
+                        <h3>Report Title 3</h3>
+                        <p>Report description goes here...</p>
+                    </div>
+                    <div class="report-actions">
+                        <button class="btn view-btn"><a href="/HTML/reportpageins.html">View</a></button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Add New Report Form -->
+            <div class="add-report-form">
+                <h3>Add New Report</h3>
+                <form action="#" method="post">
+                    <input type="text" name="report-title" placeholder="Report Title" required>
+                    <textarea name="report-description" placeholder="Report Description" required></textarea>
+                    <button type="submit" class="btn add-btn">Add Report</button>
+                </form>
+            </div>
+        </section>
+
+    <footer class="footer">
+        &copy; copyrights 2024 BrightMind. All rights reserved.
+     </footer>
+</body>
+</html>

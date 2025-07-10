@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrightMind</title>
+    <!-- Favicon for the webpage -->
+    <link rel="icon" type="image/x-icon" href="/IMAGES/LMS__1_-removebg-preview.png">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="/CSS/sign_up.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="/IMAGES/LMS_LEARNING_MANAGEMENT_SYSTEM__1_-removebg-preview.png" alt="Logo">
+            <span>BrightMind</span>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="/index.html">Home</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="signup-container">
+        <div class="image-box">
+            <img src="/IMAGES/Screenshot 2024-07-24 130547.png" alt="3D Shapes">
+        </div>
+        <div class="signup-box">
+            <h1>Sign Up</h1>
+            <p>Create an account to get started!</p>
+            <form id="registerForm">
+                <label for="name">Full Name*</label>
+                
+                <input type="text" id="name" placeholder="Full Name" required>
+                <div class="alert-placeholder" id="name-alert" ></div>
+
+                <label for="email">Email*</label>
+                <input type="email" id="email" placeholder="mail@-website.com" required>
+                <div class="alert-placeholder" id="email-alert"></div>
+                
+
+                <label for="username">Username*</label>
+                <input type="text" id="username" placeholder="Username" required>
+                <div class="alert-placeholder" id="username-alert"></div>
+              
+
+                <label for="mobile">Mobile*</label>
+                <input type="text" id="mobile" placeholder="+91 9876543210" required>
+                <div class="alert-placeholder" id="mobile-alert"></div>
+               
+
+                <label for="password">Password*</label>
+                <input type="password" id="password" placeholder="Min. 8 characters" required>
+                <div class="alert-placeholder" id="password-alert"></div>
+                
+
+                <label for="confirm-password">Confirm Password*</label>
+                <input type="password" id="confirm-password" placeholder="Re-enter Password" required>
+                <div class="alert-placeholder" id="confirm-password-alert"></div>
+                
+
+                <label for="user-type">User Type*</label>
+                <div class="alert-placeholder" id="user-type-alert"></div>
+                <select id="user-type" required>
+                    <option value="" disabled selected>Select your role</option>
+                    <option value="instructor">Instructor</option>
+                    <option value="student">Student</option>
+                </select>
+                
+                <button type="submit" class="signup-btn">Sign Up</button>
+            </form>
+            <p class="login">Already have an account? <a href="/HTML/login.html">Login</a></p>
+        </div>
+    </div>
+   
+    <footer>
+        <div class="quick-links">
+            <h2>Quick Links</h2>
+            <div class="card-container">
+                <div class="card">
+                    <a href="#hero">
+                        <h3>Home</h3>
+                        <p>Return to the main page</p>
+                    </a>
+                </div>
+                <div class="card">
+                    <a href="#">
+                        <h3>Courses</h3>
+                        <p>Browse available courses</p>
+                    </a>
+                </div>
+                <div class="card">
+                    <a href="#contact">
+                        <h3>Support</h3>
+                        <p>Get help and support</p>
+                    </a>
+                </div>
+                <div class="card">
+                    <a href="#about">
+                        <h3>About Us</h3>
+                        <p>Learn more about us</p>
+                    </a>
+                </div>
+                <div class="card">
+                    <a href="#contact">
+                        <h3>Contact Us</h3>
+                        <p>Find out how to reach us</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <br>
+        <!-- Social media links -->
+        <div class="social-links">
+            <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+        </div>
+        <br>
+        <div class="footer-copy">
+            <p>&copy; <span id="year"></span> copyright 2024 BrightMind. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Internal JavaScript for form validation -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('name').addEventListener('input', validateName);
+            document.getElementById('username').addEventListener('input', validateUsername);
+            document.getElementById('email').addEventListener('input', validateEmail);
+            document.getElementById('mobile').addEventListener('input', validateMobile);
+            document.getElementById('password').addEventListener('input', validatePassword);
+            document.getElementById('confirm-password').addEventListener('input', validateConfirmPassword);
+        });
+
+        function validateName() {
+            let nameInput = document.getElementById('name');
+            let nameValue = nameInput.value.trim();
+            let namePattern = /^[A-Za-z]+( [A-Za-z]+)*$/;
+
+            if (namePattern.test(nameValue) && nameValue.length >= 3 && nameValue.length <= 20 && nameValue !== '') {
+                nameInput.classList.remove('is-invalid');
+                nameInput.classList.add('is-valid');
+                hideAlert('name');
+            } else {
+                nameInput.classList.remove('is-valid');
+                nameInput.classList.add('is-invalid');
+                showAlert('Invalid name format. Name must be 3-20 characters long and only contain uppercase and lowercase letters with optional spaces.', 'danger', 'name');
+            }
+        }
+
+        function validateEmail() {
+            let emailInput = document.getElementById('email');
+            let emailValue = emailInput.value.trim();
+            let emailPattern = /^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,3}$/;
+
+            if (emailPattern.test(emailValue) && emailValue !== '') {
+                emailInput.classList.remove('is-invalid');
+                emailInput.classList.add('is-valid');
+                hideAlert('email');
+            } else {
+                emailInput.classList.remove('is-valid');
+                emailInput.classList.add('is-invalid');
+                showAlert('Invalid email format. Must include an "@" symbol, a domain, and a top-level domain with 2-3 characters.', 'danger', 'email');
+            }
+        }
+
+        function validateUsername() {
+            let usernameInput = document.getElementById('username');
+            let usernameValue = usernameInput.value.trim();
+            let usernamePattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$_])[A-Za-z\d#$]{8,16}$/;
+
+            if (usernamePattern.test(usernameValue) && usernameValue !== '') {
+                usernameInput.classList.remove('is-invalid');
+                usernameInput.classList.add('is-valid');
+                hideAlert('username');
+            } else {
+                usernameInput.classList.remove('is-valid');
+                usernameInput.classList.add('is-invalid');
+                showAlert('Invalid username format. Must be 8-16 characters long and include at least one uppercase letter, one lowercase letter, one digit, and one special character (#,$,_).', 'danger', 'username');
+            }
+        }
+
+        function validatePassword() {
+            let passwordInput = document.getElementById('password');
+            let passwordValue = passwordInput.value.trim();
+            let passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$_])[A-Za-z\d#$]{8,16}$/;
+
+            if (passwordPattern.test(passwordValue) && passwordValue !== '') {
+                passwordInput.classList.remove('is-invalid');
+                passwordInput.classList.add('is-valid');
+                hideAlert('password');
+            } else {
+                passwordInput.classList.remove('is-valid');
+                passwordInput.classList.add('is-invalid');
+                showAlert('Invalid password format. Must be 8-16 characters long and include at least one uppercase letter, one lowercase letter, one digit, and one special character (#,$,_).', 'danger', 'password');
+            }
+        }
+
+        function validateConfirmPassword() {
+            let confirmPasswordInput = document.getElementById('confirm-password');
+            let confirmPasswordValue = confirmPasswordInput.value.trim();
+            let passwordValue = document.getElementById('password').value.trim();
+
+            if (confirmPasswordValue === passwordValue && confirmPasswordValue !== '') {
+                confirmPasswordInput.classList.remove('is-invalid');
+                confirmPasswordInput.classList.add('is-valid');
+                hideAlert('confirm-password');
+            } else {
+                confirmPasswordInput.classList.remove('is-valid');
+                confirmPasswordInput.classList.add('is-invalid');
+                showAlert('Passwords do not match. Please make sure both passwords are the same.', 'danger', 'confirm-password');
+            }
+        }
+
+        function validateMobile() {
+            let mobileInput = document.getElementById('mobile');
+            let mobileValue = mobileInput.value.trim();
+            let mobilePattern = /^[6-9]\d{9}$/;
+
+            if (mobilePattern.test(mobileValue) && mobileValue !== '') {
+                mobileInput.classList.remove('is-invalid');
+                mobileInput.classList.add('is-valid');
+                hideAlert('mobile');
+            } else {
+                mobileInput.classList.remove('is-valid');
+                mobileInput.classList.add('is-invalid');
+                showAlert('Invalid mobile number format. Must start with a digit between 6-9 and be exactly 10 digits long.', 'danger', 'mobile');
+            }
+        }
+
+        function showAlert(message, type, field) {
+            let alertPlaceholder = document.getElementById(field + '-alert');
+            alertPlaceholder.innerHTML = `
+                <div class="alert alert-${type} alert-dismissible fade show" role="alert">
+                    ${message}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            `;
+        }
+
+        function hideAlert(field) {
+            let alertPlaceholder = document.getElementById(field + '-alert');
+            alertPlaceholder.innerHTML = '';
+        }
+    </script>
+</body>
+</html>

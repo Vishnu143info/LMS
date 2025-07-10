@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Edit Course - BrightMind</title>
+   <link rel="icon" type="image/x-icon" href="/IMAGES/LMS__1_-removebg-preview.png">
+   <link rel="stylesheet" href="/CSS/Admin_dashboard.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+   <style>
+      /* Form styling */
+      .form-container {
+         max-width: 800px;
+         margin: 0 auto;
+         padding: 20px;
+         background-color: #f9f9f9;
+         border-radius: 10px;
+         box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .form-container h1 {
+         text-align: center;
+         margin-bottom: 20px;
+      }
+
+      .form-group {
+         margin-bottom: 15px;
+      }
+
+      .form-group label {
+         display: block;
+         margin-bottom: 5px;
+         font-weight: bold;
+      }
+
+      .form-group input,
+      .form-group textarea {
+         width: 100%;
+         padding: 10px;
+         font-size: 1rem;
+         border: 1px solid #ddd;
+         border-radius: 5px;
+      }
+
+      .form-group button {
+         background-color: #ff4d6d;
+         color: #fff;
+         padding: 10px 20px;
+         border: none;
+         border-radius: 5px;
+         font-size: 1rem;
+         cursor: pointer;
+      }
+
+      .form-group button:hover {
+         background-color:lightcoral;
+      }
+   </style>
+</head>
+<body>
+   <header class="header">
+      <div class="flex">
+         <button id="menu-btn" class="d-md-none">☰</button>
+         <a href="#" class="logo"><b>Edit Course</b></a>
+
+         <form action="" class="search-form">
+            <input type="text" name="search" placeholder="Search...">
+            <button type="submit">🔍</button>
+         </form>
+      </div>
+   </header>
+
+   <section>
+      <aside class="side-bar bg-primary text-white p-3 position-fixed vh-100">
+         <div id="close-btn" class="d-md-none text-end">
+            <i class="fas fa-times text-white fs-4"></i>
+         </div>
+      
+         <div class="profile text-center my-4">
+            <img src="/IMAGES/LMS_LEARNING_MANAGEMENT_SYSTEM__1_-removebg-preview.png" alt="Profile Image" class="image img-fluid rounded-circle mb-3">
+            <h3 class="name h4">BrightMind</h3>
+         </div>
+      
+         <nav class="navbar">
+            <a href="/HTML/Admin_Dashboard.html" class="d-block py-2 "><i class="fas fa-home"></i> Home</a>
+            <a href="/HTML/Coursecreate.html" class="d-block py-2 "><i class="fas fa-user"></i> Create course</a>
+            <a href="/HTML/delete.html" class="d-block py-2 "><i class="fas fa-database"></i> View All Courses</a>
+            <a href="/HTML/courselist.html" class="d-block py-2 "><i class="fas fa-book-open"></i> Total Courses</a>
+            <a href="/HTML/Instructorlist.html" class="d-block py-2 "><i class="fas fa-user-graduate"></i> Total Instructor</a>
+            <a href="/HTML/studentlist.html" class="d-block py-2 "><i class="fas fa-address-card"></i> Total Students</a>
+            <a href="/HTML/report.html" class="d-block py-2 "><i class="fas fa-cog"></i> Report</a>
+            <a href="/HTML/logout.html" class="d-block py-2 "><i class="fas fa-sign-out-alt"></i> Logout</a>
+         </nav>
+      </aside>
+   </section>
+
+   <main>
+      <div class="form-container">
+         <h1>Edit Course</h1>
+         <form id="edit-course-form">
+            <div class="form-group">
+               <label for="course-id">Course ID</label>
+               <input type="text" id="course-id" name="course-id" readonly>
+            </div>
+            <div class="form-group">
+               <label for="course-name">Course Name</label>
+               <input type="text" id="course-name" name="course-name" required>
+            </div>
+            <div class="form-group">
+               <label for="instructor">Instructor</label>
+               <input type="text" id="instructor" name="instructor" required>
+            </div>
+            <div class="form-group">
+               <label for="description">Course Description</label>
+               <textarea id="description" name="description" rows="4" required></textarea>
+            </div>
+            <div class="form-group">
+               <label for="start-date">Start Date</label>
+               <input type="date" id="start-date" name="start-date" required>
+            </div>
+            <div class="form-group">
+               <button type="submit">Save Changes</button>
+            </div>
+         </form>
+      </div>
+   </main>
+
+   <footer class="footer">
+      &copy; copyrights 2024 BrightMind. All rights reserved.
+   </footer>
+
+   <script>
+      // Fetch the course ID from the URL parameters
+      const urlParams = new URLSearchParams(window.location.search);
+      const courseId = urlParams.get('id');
+
+      // Populate the form with the course data
+      function loadCourseData(courseId) {
+         // Simulate fetching course data from server
+         // In a real application, you'd fetch this data via an API call
+         const courseData = {
+            'C001': { courseName: 'Python Programming', instructor: 'Rahul Sharma', description: 'Learn Python from scratch.', startDate: '2024-01-15' },
+            'C002': { courseName: 'Java Development', instructor: 'Anjali Gupta', description: 'Comprehensive Java development course.', startDate: '2024-02-10' },
+            'C003': { courseName: 'Web Design', instructor: 'Vikram Patel', description: 'Master the art of web design.', startDate: '2024-03-05' },
+            'C004': { courseName: 'Data Science', instructor: 'Sneha Reddy', description: 'Become a data science expert.', startDate: '2024-04-12' },
+            'C005': { courseName: 'Cloud Computing', instructor: 'Amitabh Mishra', description: 'Learn cloud computing concepts.', startDate: '2024-05-08' },
+            'C006': { courseName: 'Machine Learning', instructor: 'Siva', description: 'Explore machine learning techniques.', startDate: '2024-06-20' }
+         };
+
+         const data = courseData[courseId];
+         if (data) {
+            document.getElementById('course-id').value = courseId;
+            document.getElementById('course-name').value = data.courseName;
+            document.getElementById('instructor').value = data.instructor;
+            document.getElementById('description').value = data.description;
+            document.getElementById('start-date').value = data.startDate;
+         }
+      }
+
+      document.addEventListener('DOMContentLoaded', () => {
+         if (courseId) {
+            loadCourseData(courseId);
+         }
+      });
+
+      document.getElementById('edit-course-form').addEventListener('submit', function(event) {
+         event.preventDefault();
+         // Simulate saving the updated course data
+         console.log('Course details updated:', {
+            courseId: document.getElementById('course-id').value,
+            courseName: document.getElementById('course-name').value,
+            instructor: document.getElementById('instructor').value,
+            description: document.getElementById('description').value,
+            startDate: document.getElementById('start-date').value
+         });
+         alert('Course details updated successfully!');
+      });
+
+      // JavaScript for toggling sidebar
+      document.getElementById('menu-btn').addEventListener('click', function () {
+         document.querySelector('.side-bar').classList.toggle('active');
+         document.body.classList.toggle('active');
+      });
+
+      document.getElementById('close-btn').addEventListener('click', function () {
+         document.querySelector('.side-bar').classList.remove('active');
+         document.body.classList.remove('active');
+      });
+   </script>
+</body>
+</html>

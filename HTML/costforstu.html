@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrightMind</title>
+    <!-- Favicon for the webpage -->
+    <link rel="icon" type="image/x-icon" href="/IMAGES/LMS__1_-removebg-preview.png">
+    <link rel="stylesheet" href="/CSS/cost.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="/IMAGES/LMS_LEARNING_MANAGEMENT_SYSTEM__1_-removebg-preview.png" alt="Logo">
+            <span>BrightMind</span>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="/index.html">Home</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="course-overview">
+            <h1>Course Purchase Page</h1>
+            <div class="course-cards">
+                <div class="course-card">
+                    <img src="/IMAGES/ja362j7d4-java-logo-java-free-logo-icons.png" alt="Java" class="course-img">
+                    <div class="course-content">
+                        <h2>Java Programming</h2>
+                        <p class="course-description">Learn the fundamentals of Java programming.</p>
+                        <div class="course-info">
+                            <p><strong>Tutor:</strong> John Doe</p>
+                            <p><strong>Price:</strong> 5999</p>
+                            <p><strong>Duration:</strong> 10 weeks</p>
+                        </div>
+                        <a href="#javaModal" class="open-modal">More Details</a>
+                    </div>
+                </div>
+
+                <div class="course-card">
+                    <img src="/IMAGES/Python.svg.png" alt="Python" class="course-img">
+                    <div class="course-content">
+                        <h2>Python Programming</h2>
+                        <p class="course-description">Master Python programming for data science.</p>
+                        <div class="course-info">
+                            <p><strong>Tutor:</strong> Jane Smith</p>
+                            <p><strong>Price:</strong> 4999</p>
+                            <p><strong>Duration:</strong> 12 weeks</p>
+                        </div>
+                        <a href="#pythonModal" class="open-modal">More Details</a>
+                    </div>
+                </div>
+
+                <div class="course-card">
+                    <img src="/IMAGES/Web-Dev.jpg" alt="Web Development" class="course-img">
+                    <div class="course-content">
+                        <h2>Web Development</h2>
+                        <p class="course-description">Build stunning websites with HTML, CSS, and JavaScript.</p>
+                        <div class="course-info">
+                            <p><strong>Tutor:</strong> Mike Johnson</p>
+                            <p><strong>Price:</strong> 6999</p>
+                            <p><strong>Duration:</strong> 14 weeks</p>
+                        </div>
+                        <a href="#webDevModal" class="open-modal">More Details</a>
+                    </div>
+                </div>
+
+                <!-- Additional course cards can be added here -->
+            </div>
+
+            <!-- Java Modal -->
+            <div id="javaModal" class="modal">
+                <div class="modal-content">
+                    <a href="#" class="close">&times;</a>
+                    <h2>Java Programming</h2>
+                    <p><strong>Tutor:</strong> John Doe</p>
+                    <p><strong>Price:</strong> 5999</p>
+                    <p><strong>Duration:</strong> 10 weeks</p>
+                    <p><strong>Rating:</strong> ★★★★☆ (200 Reviews)</p>
+                </div>
+            </div>
+
+            <!-- Python Modal -->
+            <div id="pythonModal" class="modal">
+                <div class="modal-content">
+                    <a href="#" class="close">&times;</a>
+                    <h2>Python Programming</h2>
+                    <p><strong>Tutor:</strong> Jane Smith</p>
+                    <p><strong>Price:</strong> 4999</p>
+                    <p><strong>Duration:</strong> 12 weeks</p>
+                    <p><strong>Rating:</strong> ★★★★★ (250 Reviews)</p>
+                </div>
+            </div>
+
+            <!-- Web Development Modal -->
+            <div id="webDevModal" class="modal">
+                <div class="modal-content">
+                    <a href="#" class="close">&times;</a>
+                    <h2>Web Development</h2>
+                    <p><strong>Tutor:</strong> Mike Johnson</p>
+                    <p><strong>Price:</strong> 6999</p>
+                    <p><strong>Duration:</strong> 14 weeks</p>
+                    <p><strong>Rating:</strong> ★★★★★ (300 Reviews)</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <section class="special-offers">
+        <h3>Special Offers</h3>
+        <div class="offer-cards">
+            <div class="offer-card">
+                <h4>Early Bird Discount</h4>
+                <p>Save 20% if you enroll by August 31.</p>
+            </div>
+            <div class="offer-card">
+                <h4>Referral Discount</h4>
+                <p>Refer a friend and both receive 15% off.</p>
+            </div>
+            <div class="offer-card">
+                <h4>Bundle Offer</h4>
+                <p>Purchase this course with JavaScript Basics and save 25%.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="checkout">
+        <h3>Secure Checkout</h3>
+        <div class="checkout-grid">
+            <form action="/submit-payment" method="POST">
+                <label for="course-select"><strong>Select Course:</strong></label>
+                <select id="course-select" name="course">
+                    <option value="java">Java Programming - 5999</option>
+                    <option value="python">Python Programming - 4999</option>
+                    <option value="web-dev">Web Development - 6999</option>
+                    <!-- Add more course options as needed -->
+                </select>
+                <p><strong>Payment Options:</strong> UPI</p>
+                <button class="btn-enroll"><a href="/HTML/payment.html">Complete Purchase</a></button>
+            </form>
+        </div>
+    </section>
+    
+
+    <section class="additional-info">
+        <h3>Additional Information</h3>
+        <div class="info-cards">
+            <div class="info-card">
+                <h4>Money-Back Guarantee</h4>
+                <p>If you're not satisfied with the course, get a full refund within 30 days of purchase.</p>
+            </div>
+            <div class="info-card">
+                <h4>Need Help?</h4>
+                <p>Contact us at support@brightmind.com or call (123) 456-7890.</p>
+                <p><a href="#">FAQ</a> | <a href="#">Live Chat</a></p>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <h3>Testimonials</h3>
+        <div class="testimonial-cards">
+            <div class="testimonial-card">
+                <p>"This course exceeded my expectations! The content was comprehensive, and the support was excellent." – John Doe</p>
+            </div>
+            <div class="testimonial-card">
+                <p>"I gained valuable skills that have already made a difference in my career." – Jane Smith</p>
+            </div>
+        </div>
+    </section>
+
+    
+    <footer>
+        <div class="quick-links">
+            <h2>Quick Links</h2>
+            <div class="card-container">
+                <div class="card">
+                    <a href="/index.html#hero">
+                        <h3>Home</h3>
+                        <p>Return to the main page</p>
+                    </a>
+                </div>
+                <div class="card">
+                    <a href="#Vip">
+                        <h3>Courses</h3>
+                        <p>Browse available courses</p>
+                    </a>
+                </div>
+                <div class="card">
+                    <a href="/index.html#contact">
+                        <h3>Support</h3>
+                        <p>Get help and support</p>
+                    </a>
+                </div>
+                <div class="card">
+                    <a href="/index.html#about">
+                        <h3>About Us</h3>
+                        <p>Learn more about us</p>
+                    </a>
+                </div>
+                <div class="card">
+                    <a href="/index.html#contact">
+                        <h3>Contact Us</h3>
+                        <p>Find out how to reach us</p>
+                    </a>
+                </div>
+            </div>
+        </div><br>
+        <footer>
+            <!-- Social media links -->
+            <div class="social-links">
+                <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
+        </footer>
+        <footer class="Copy">
+            <p>&copy; <span id="year"></span> copyright 2024 BrightMind. All rights reserved.</p>
+    </footer>
+</body>
+</html>

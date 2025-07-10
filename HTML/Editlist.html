@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Edit Student - BrightMind</title>
+   <link rel="icon" type="image/x-icon" href="/IMAGES/LMS__1_-removebg-preview.png">
+   <link rel="stylesheet" href="/CSS/Admin_dashboard.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+   <style>
+      /* Form styling */
+      .form-container {
+         max-width: 800px;
+         margin: 0 auto;
+         padding: 20px;
+         background-color: #f9f9f9;
+         border-radius: 10px;
+         box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .form-container h1 {
+         text-align: center;
+         margin-bottom: 20px;
+      }
+
+      .form-group {
+         margin-bottom: 15px;
+      }
+
+      .form-group label {
+         display: block;
+         margin-bottom: 5px;
+         font-weight: bold;
+      }
+
+      .form-group input {
+         width: 100%;
+         padding: 10px;
+         font-size: 1rem;
+         border: 1px solid #ddd;
+         border-radius: 5px;
+      }
+
+      .form-group textarea {
+         width: 100%;
+         padding: 10px;
+         font-size: 1rem;
+         border: 1px solid #ddd;
+         border-radius: 5px;
+      }
+
+      .form-group button {
+         background-color: #3498db;
+         color: #fff;
+         padding: 10px 20px;
+         border: none;
+         border-radius: 5px;
+         font-size: 1rem;
+         cursor: pointer;
+      }
+
+      .form-group button:hover {
+         background-color: #2980b9;
+      }
+   </style>
+</head>
+<body>
+   <header class="header">
+      <div class="flex">
+         <button id="menu-btn" class="d-md-none">☰</button>
+         <a href="#" class="logo"><b>Edit Student</b></a>
+
+         <form action="" class="search-form">
+            <input type="text" name="search" placeholder="Search...">
+            <button type="submit">🔍</button>
+         </form>
+      </div>
+   </header>
+
+   <section>
+      <aside class="side-bar bg-primary text-white p-3 position-fixed vh-100">
+         <div id="close-btn" class="d-md-none text-end">
+            <i class="fas fa-times text-white fs-4"></i>
+         </div>
+      
+         <div class="profile text-center my-4">
+            <img src="/IMAGES/LMS_LEARNING_MANAGEMENT_SYSTEM__1_-removebg-preview.png" alt="Profile Image" class="image img-fluid rounded-circle mb-3">
+            <h3 class="name h4">BrightMind</h3>
+         </div>
+      
+         <nav class="navbar">
+            <a href="/HTML/Admin_Dashboard.html" class="d-block py-2 "><i class="fas fa-home"></i> Home</a>
+            <a href="/HTML/Coursecreate.html" class="d-block py-2 "><i class="fas fa-user"></i> Create course</a>
+            <a href="/HTML/delete.html" class="d-block py-2 "><i class="fas fa-database"></i> View All Courses</a>
+            <a href="/HTML/courselist.html" class="d-block py-2 "><i class="fas fa-book-open"></i> Total Courses</a>
+            <a href="/HTML/Instructorlist.html" class="d-block py-2 "><i class="fas fa-user-graduate"></i> Total Instructor</a>
+            <a href="/HTML/studentlist.html" class="d-block py-2 "><i class="fas fa-address-card"></i> Total Students</a>
+            <a href="/HTML/report.html" class="d-block py-2 "><i class="fas fa-cog"></i> Report</a>
+            <a href="/HTML/logout.html" class="d-block py-2 "><i class="fas fa-sign-out-alt"></i> Logout</a>
+         </nav>
+      </aside>
+   </section>
+
+   <main>
+      <div class="form-container">
+         <h1>Edit Student</h1>
+         <form id="edit-student-form">
+            <div class="form-group">
+               <label for="student-id">Student ID</label>
+               <input type="text" id="student-id" name="student-id" readonly>
+            </div>
+            <div class="form-group">
+               <label for="name">Name</label>
+               <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+               <label for="email">Email</label>
+               <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+               <label for="course">Course Enrolled</label>
+               <input type="text" id="course" name="course" required>
+            </div>
+            <div class="form-group">
+               <label for="enrollment-date">Enrollment Date</label>
+               <input type="date" id="enrollment-date" name="enrollment-date" required>
+            </div>
+            <div class="form-group">
+               <button type="submit">Save Changes</button>
+            </div>
+         </form>
+      </div>
+   </main>
+
+   <footer class="footer">
+    &copy; copyrights 2024 BrightMind. All rights reserved.
+   </footer>
+
+   <script>
+      // Fetch the student ID from the URL parameters
+      const urlParams = new URLSearchParams(window.location.search);
+      const studentId = urlParams.get('id');
+
+      // Populate the form with the student data
+      function loadStudentData(studentId) {
+         // Simulate fetching student data from server
+         // In a real application, you'd fetch this data via an API call
+         const studentData = {
+            '001': { name: 'Rahul Sharma', email: 'rahul@example.com', course: 'Python Programming', enrollmentDate: '2024-01-15' },
+            '002': { name: 'Anjali Gupta', email: 'anjali@example.com', course: 'Java Development', enrollmentDate: '2024-02-10' },
+            '003': { name: 'Vikram Patel', email: 'vikram@example.com', course: 'Web Design', enrollmentDate: '2024-03-05' },
+            '004': { name: 'Sneha Reddy', email: 'sneha@example.com', course: 'Data Science', enrollmentDate: '2024-04-12' },
+            '005': { name: 'Amitabh Mishra', email: 'amitabh@example.com', course: 'Cloud Computing', enrollmentDate: '2024-05-08' },
+            '006': { name: 'Siva', email: 'siva@example.com', course: 'Machine Learning', enrollmentDate: '2024-06-20' }
+         };
+
+         const data = studentData[studentId];
+         if (data) {
+            document.getElementById('student-id').value = studentId;
+            document.getElementById('name').value = data.name;
+            document.getElementById('email').value = data.email;
+            document.getElementById('course').value = data.course;
+            document.getElementById('enrollment-date').value = data.enrollmentDate;
+         }
+      }
+
+      document.addEventListener('DOMContentLoaded', () => {
+         if (studentId) {
+            loadStudentData(studentId);
+         }
+      });
+
+      document.getElementById('edit-student-form').addEventListener('submit', function(event) {
+         event.preventDefault();
+         // Simulate saving the updated student data
+         console.log('Student details updated:', {
+            studentId: document.getElementById('student-id').value,
+            name: document.getElementById('name').value,
+            email: document.getElementById('email').value,
+            course: document.getElementById('course').value,
+            enrollmentDate: document.getElementById('enrollment-date').value
+         });
+         alert('Student details updated successfully!');
+      });
+
+         // JavaScript for toggling sidebar
+   document.getElementById('menu-btn').addEventListener('click', function () {
+      document.querySelector('.side-bar').classList.toggle('active');
+      document.body.classList.toggle('active');
+   });
+
+   document.getElementById('close-btn').addEventListener('click', function () {
+      document.querySelector('.side-bar').classList.remove('active');
+      document.body.classList.remove('active');
+   });
+   </script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>BrightMind</title>
+   <!-- Favicon for the webpage -->
+   <link rel="icon" type="image/x-icon" href="/IMAGES/LMS__1_-removebg-preview.png">
+   <link rel="stylesheet" href="/CSS/instructor.css">
+</head>
+<body>
+   <header class="header">
+      <div class="flex">
+         <div id="menu-btn" class="fas fa-bars"></div>
+
+         <a href="#" class="logo"><b>Instructor Profile</b></a>
+   </header>
+
+   <aside class="side-bar">
+      <div id="close-btn">
+         <i class="fas fa-times"></i>
+      </div>
+
+      <div class="profile">
+         <img src="/IMAGES/LMS_LEARNING_MANAGEMENT_SYSTEM__1_-removebg-preview.png" alt="Profile Image" class="image">
+         <h3 class="name">BrightMind</h3>
+      </div>
+
+      <nav class="navbar">
+         <a href="/HTML/Instructor.html"><i class="fas fa-home"></i><span>Home</span></a>
+         <a href="/HTML/Manage.html"><i class="fas fa-cog"></i><span>Manage Course</span></a>
+         <a href="/HTML/reportins.html"><i class="fas fa-cog"></i><span>Report</span></a>
+         <a href="/HTML/inslogout.html"><i class="fas fa-sign-out-alt"></i><span>Logout</span></a>
+      </nav>
+   </aside>
+
+   <section class="teacher-profile">
+      <div class="details">
+         <div class="tutor">
+            <img src="/IMAGES/Ins.png" alt="Tutor Image">
+            <h3>John Doe</h3>
+            <span>Tutor</span>
+         </div>
+
+         <div class="box-container">
+            <div class="box">
+               <i class="fas fa-chalkboard-teacher"></i>
+               <div class="info">
+                  <h3>Experience</h3>
+                  <p>5 years of teaching experience .</p>
+               </div>
+            </div>
+
+            <div class="box">
+               <i class="fas fa-laptop-code"></i>
+               <div class="info">
+                  <h3>Programming Languages</h3>
+                  <p>Specializes in Python, Java, and FullStack.</p>
+               </div>
+            </div>
+
+            <div class="box">
+               <i class="fas fa-award"></i>
+               <div class="info">
+                  <h3>Awards</h3>
+                  <p>Best Tutor of the Year 2023.</p>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+   <section class="programming-languages">
+      <center><h1>Courses</h1></center>
+      <div class="box-container">
+         <a href="/HTML/video.html">
+            <div class="box">
+               <img src="/IMAGES/Python.svg.png" alt="Python">
+               <h3>Python</h3>
+               <p>Advanced</p>
+            </div>
+         </a>
+         <a href="/HTML/javavideo.html">
+            <div class="box">
+               <img src="/IMAGES/Java-Logo.png" alt="Java">
+               <h3>Java</h3>
+               <p>Intermediate</p>
+            </div>
+         </a>
+         <a href="/HTML/fullstackvideo.html">
+            <div class="box">
+               <img src="/IMAGES/Java-Full-Stack-Developer-specialization-2-.png" alt="Full-Stack">
+               <h3>Java-FullStack</h3>
+               <p>Beginner</p>
+            </div>
+         </a>
+      </div>
+   </section>
+   <footer class="footer">
+      &copy; copyrights 2024 BrightMind. All rights reserved.
+   </footer>
+
+   <script>
+   let sidebar = document.querySelector('.side-bar');
+   let closeBtn = document.querySelector('#close-btn');
+
+   document.querySelector('#menu-btn')?.addEventListener('click', () => {
+      sidebar.classList.toggle('active');
+   });
+
+   closeBtn?.addEventListener('click', () => {
+      sidebar.classList.remove('active');
+   });
+</script>
+
+</body>
+</html>

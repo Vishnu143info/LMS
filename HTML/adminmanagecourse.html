@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrightMind - Admin Dashboard</title>
+    <link rel="icon" type="image/x-icon" href="/IMAGES/LMS__1_-removebg-preview.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
+        }
+
+        /* Header Styles */
+ 
+        .header {
+           background-color: #007bff;
+           color: #fff;
+           padding: 16px 24px;
+           box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+           position: fixed;
+           width: 85%;
+           top: 0;
+           z-index: 1000;
+           left: 16.3%;
+       }
+
+        .header .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        /* Sidebar Styles */
+        .side-bar {
+            background-color: #343a40;
+            color: #fff;
+            width: 250px;
+            min-height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding: 20px;
+            box-shadow: 2px 0 4px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            overflow: auto;
+        }
+
+        .side-bar .profile img {
+            border-radius: 50%;
+            border: 3px solid #007bff;
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+        }
+
+        .side-bar .navbar a {
+            color: #fff;
+            font-size: 1rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+        }
+
+        .side-bar .navbar a:hover {
+            background-color: #495057;
+        }
+
+        .side-bar .navbar i {
+            margin-right: 10px;
+        }
+
+        /* Main Content Styles */
+        .main-content {
+            margin-left: 250px;
+            padding-top: 80px;
+            padding-bottom: 50px;
+            overflow: hidden;
+        }
+
+        /* Manage Course Section Styles */
+        #manage-course-section {
+            padding: 20px;
+        }
+
+        .manage-course-section .title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .course-list {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .course-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #fff;
+        }
+
+        .course-info h3 {
+            margin: 0;
+            font-size: 1rem;
+        }
+
+        .course-actions .btn {
+            border-radius: 20px;
+            background-color: #007bff;
+            border: none;
+            color: #fff;
+            font-size: 0.875rem;
+        }
+
+        .course-actions .btn a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .course-actions .btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* Footer Styles */
+        .footer {
+            background-color: #343a40;
+            color: #fff;
+            padding: 15px;
+            position: fixed;
+            bottom: 0;
+            width: calc(100% - 250px);
+            left: 250px;
+            text-align: center;
+            box-shadow: 0 -2px 4px rgba(0,0,0,0.1);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 1200px) {
+            .side-bar {
+                width: 200px;
+            }
+            .main-content {
+                margin-left: 200px;
+            }
+            .footer {
+                width: calc(100% - 200px);
+                left: 200px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .side-bar {
+                width: 100%;
+                position: relative;
+                transform: translateX(-100%);
+                z-index: 999;
+            }
+
+            .side-bar.collapsed {
+                transform: translateX(0);
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+
+            .footer {
+                width: 100%;
+                left: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                font-size: 1rem;
+                padding: 12px;
+            }
+
+            .side-bar .navbar a {
+                font-size: 0.875rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .course-item {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .course-actions {
+                margin-top: 10px;
+            }
+
+            .course-info h3 {
+                font-size: 1.25rem;
+            }
+
+            .course-actions .btn {
+                padding: 5px 10px;
+                font-size: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header d-flex justify-content-between align-items-center">
+        <div class="logo"><b>Admin Dashboard</b></div>
+    </header>
+
+    <!-- Sidebar Section -->
+    <aside class="side-bar">
+        <div class="profile text-center mb-4">
+            <img src="/IMAGES/LMS_LEARNING_MANAGEMENT_SYSTEM__1_-removebg-preview.png" alt="Profile Image" class="img-fluid">
+            <h3 class="mt-2">BrightMind</h3>
+        </div>
+        <nav class="navbar">
+            <a href="/HTML/Admin_Dashboard.html"><i class="fas fa-home"></i><span>Home</span></a>
+            <a href="/HTML/Coursecreate.html"><i class="fas fa-user"></i><span>Create Course</span></a>
+            <a href="/HTML/report.html"><i class="fas fa-cog"></i><span>Report</span></a>
+            <a href="/HTML/logout.html"><i class="fas fa-sign-out-alt"></i><span>Logout</span></a>
+        </nav>
+    </aside>
+
+    <!-- Main Content Section -->
+    <main class="main-content">
+        <section id="manage-course-section" class="manage-course-section">
+            <div class="title">Manage Course</div>
+            <div class="course-list">
+                <div class="course-item">
+                    <div class="course-info">
+                        <h3>Course Title 1</h3>
+                        <p>Course description goes here...</p>
+                    </div>
+                    <div class="course-actions">
+                        <button class="btn edit-btn"><a href="/HTML/editins.html">Edit</a></button>
+                    </div>
+                </div>
+                <div class="course-item">
+                    <div class="course-info">
+                        <h3>Course Title 2</h3>
+                        <p>Course description goes here...</p>
+                    </div>
+                    <div class="course-actions">
+                        <button class="btn edit-btn"><a href="/HTML/editins.html">Edit</a></button>
+                    </div>
+                </div>
+                <div class="course-item">
+                    <div class="course-info">
+                        <h3>Course Title 3</h3>
+                        <p>Course description goes here...</p>
+                    </div>
+                    <div class="course-actions">
+                        <button class="btn edit-btn"><a href="/HTML/editins.html">Edit</a></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        &copy; 2024 BrightMind. All rights reserved.
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script>
+        document.getElementById('toggle-sidebar').addEventListener('click', function() {
+            document.querySelector('.side-bar').classList.toggle('collapsed');
+        });
+    </script>
+</body>
+</html>

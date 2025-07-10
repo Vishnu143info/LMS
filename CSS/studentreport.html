@@ -1,0 +1,45 @@
+.report-boxes {
+    display: flex;
+    justify-content: space-around;
+    margin: 2rem 0;
+    gap: 20px;
+}
+
+.report-boxes .box {
+    width: 30%;
+    background-color: lightblue;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.report-boxes .box .right-side {
+    flex-grow: 1;
+    margin-left: 1rem;
+}
+
+.report-boxes .box .right-side .box-topic {
+    font-size: 2rem;
+    color: #666;
+}
+
+.report-boxes .box .right-side .number {
+    font-size: 3rem;
+    font-weight: bold;
+    margin: 0.5rem 0;
+}
+
+.report-boxes .box .right-side .indicator {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+}
+
+.report-boxes .box .right-side .indicator i {
+    color: #28a745;
+    margin-right: 0.5rem;
+    font-size: 1.5rem;
+}

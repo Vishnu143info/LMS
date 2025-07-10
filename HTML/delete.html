@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrightMind</title>
+    <!-- Favicon for the webpage -->
+    <link rel="icon" type="image/x-icon" href="/IMAGES/LMS__1_-removebg-preview.png">
+    <link rel="stylesheet" href="/CSS/delete.css">
+
+</head>
+<body>
+    <header class="header">
+        <div class="flex">
+            <button id="menu-btn" class="d-md-none">☰</button>
+            <a href="#" class="logo"><b>Admin Dashboard</b></a>
+        </div>
+    </header>
+
+    <aside class="side-bar">
+        <div id="close-btn">
+            <i class="fas fa-times"></i>
+        </div>
+
+        <div class="profile">
+            <img src="/IMAGES/LMS_LEARNING_MANAGEMENT_SYSTEM__1_-removebg-preview.png" alt="Profile Image" class="image">
+            <h3 class="name">BrightMind</h3>
+        </div>
+
+        <nav class="navbar">
+            <a href="/HTML/Admin_Dashboard.html" class="d-block py-2 "><i class="fas fa-home"></i> Home</a>
+            <a href="/HTML/Coursecreate.html" class="d-block py-2 "><i class="fas fa-user"></i> Create course</a>
+            <a href="/HTML/delete.html" class="d-block py-2 "><i class="fas fa-database"></i> View All Courses</a>
+            <a href="/HTML/courselist.html" class="d-block py-2 "><i class="fas fa-book-open"></i> Total Courses</a>
+            <a href="/HTML/Instructorlist.html" class="d-block py-2 "><i class="fas fa-user-graduate"></i> Total Instructor</a>
+            <a href="/HTML/studentlist.html" class="d-block py-2 "><i class="fas fa-address-card"></i> Total Students</a>
+            <a href="/HTML/report.html" class="d-block py-2 "><i class="fas fa-cog"></i> Report</a>
+            <a href="/HTML/logout.html" class="d-block py-2 "><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </nav>
+    </aside>
+
+    <section class="all-courses">
+        <div class="title">All Courses</div>
+        <button class="new"><a href="/HTML/Coursecreate.html">Create Course</a></button>
+        
+        <div class="courses">
+            <div class="course">
+                <div class="course-info">
+                    <h3>Python Programming</h3>
+                    <p>Instructor: Jane Doe</p>
+                </div>
+                <div class="course-actions">
+                    <button class="btn"><a href="/HTML/videoforadmin.html">View Course</a></button>
+                    <button class="btn"><a href="/HTML/Courseedit.html">Edit Course</a></button>
+                    <button class="btn btn-delete" data-course="Python Programming">Delete</button>
+                </div>
+            </div>
+            <div class="course">
+                <div class="course-info">
+                    <h3>Java Development</h3>
+                    <p>Instructor: John Smith</p>
+                </div>
+                <div class="course-actions">
+                    <button class="btn"><a href="/HTML/videoforadmin.html">View Course</a></button>
+                    <button class="btn"><a href="/HTML/courseeditjava.html">Edit Course</a></button>
+                    <button class="btn btn-delete" data-course="Java Development">Delete</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        &copy; copyrights 2024 BrightMind. All rights reserved.
+    </footer>
+
+    <!-- Modal Structure -->
+    <div id="delete-modal" class="modal">
+        <div class="modal-content">
+            <button class="btn-close" onclick="closeModal()">&times;</button>
+            <div class="modal-header">Confirm Deletion</div>
+            <p id="modal-message">Are you sure you want to delete this course?</p>
+            <div class="modal-buttons">
+                <button class="btn btn-confirm" onclick="confirmDelete()">Yes, Delete</button>
+                <button class="btn btn-cancel" onclick="closeModal()">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let selectedCourse = '';
+
+        document.querySelectorAll('.btn-delete').forEach(button => {
+            button.addEventListener('click', function() {
+                selectedCourse = this.getAttribute('data-course');
+                document.getElementById('modal-message').textContent = `Are you sure you want to delete the course: ${selectedCourse}?`;
+                document.getElementById('delete-modal').style.display = 'flex';
+            });
+        });
+
+        function closeModal() {
+            document.getElementById('delete-modal').style.display = 'none';
+        }
+
+        function confirmDelete() {
+            // Here you can add code to actually delete the course
+            alert(`Course "${selectedCourse}" deleted!`);
+            closeModal();
+        }
+
+                        // JavaScript for toggling sidebar
+                        document.getElementById('menu-btn').addEventListener('click', function () {
+           document.querySelector('.side-bar').classList.toggle('active');
+           document.body.classList.toggle('active');
+        });
+     
+        document.getElementById('close-btn').addEventListener('click', function () {
+           document.querySelector('.side-bar').classList.remove('active');
+           document.body.classList.remove('active');
+        });
+    </script>
+</body>
+</html>

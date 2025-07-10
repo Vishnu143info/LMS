@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>BrightMind - Instructor Dashboard</title>
+   <!-- Favicon for the webpage -->
+   <link rel="icon" type="image/x-icon" href="/IMAGES/LMS__1_-removebg-preview.png">
+   <link rel="stylesheet" href="../CSS/Admin_dashboard.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+   <style>
+      /* Table styling */
+      table {
+         width: 100%;
+         border-collapse: collapse;
+         margin: 25px 0;
+         font-size: 1.6rem;
+         font-family: 'Arial', sans-serif;
+         box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      }
+
+      table thead tr {
+         background-color: #ff4d6d; /* Sidebar background color */
+         color: #ffffff;
+         text-align: left;
+      }
+
+      table th, table td {
+         padding: 12px 11px;
+         border-bottom: 1px solid #e0e0e0;
+      }
+
+      table tbody tr:nth-of-type(even) {
+         background-color: #f7f7f7;
+      }
+
+      table tbody tr:hover {
+         background-color: #e9f5ff;
+         cursor: pointer;
+      }
+
+      table tbody tr:last-of-type td {
+         border-bottom: none;
+      }
+
+      /* Icon button styling */
+      .icon-btn i {
+         background: none;
+         border: none;
+         color: #ff4d6d;
+         font-size: 20px;
+         cursor: pointer;
+         transition: color 0.3s ease;
+      }
+
+      .icon-btn:hover {
+         color: lightcoral;
+      }
+
+      .icon-btn:focus {
+         outline: none;
+      }
+      .list h1 {
+         text-align: center;
+      }
+      .add-btn {
+         background-color: #ff4d6d;
+         color: #fff;
+         padding: 10px 20px;
+         border: none;
+         cursor: pointer;
+         border-radius: 5px;
+         font-size: 1.6rem;
+         margin-left: 85%;
+         display: inline-block;
+      }
+      .add-btn:hover {
+         background-color:lightcoral;
+      }
+               /* Modal styles */
+   .modal {
+      display: none; 
+      position: fixed; 
+      z-index: 1; 
+      left: 0;
+      top: 0;
+      width: 100%; 
+      height: 100%; 
+      overflow: auto; 
+      background-color: rgba(0, 0, 0, 0.5); 
+   }
+
+   .modal-content {
+      background-color: #fefefe;
+      margin: 15% auto; 
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%; 
+      max-width: 400px; 
+      text-align: center;
+      border-radius: 10px;
+   }
+
+   .modal-btn {
+      margin: 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+   }
+
+   .modal-btn.confirm {
+      background-color: #ff4d6d;
+      color: white;
+   }
+
+   .modal-btn.cancel {
+      background-color: grey;
+      color: white;
+   }
+
+   .modal-btn.confirm:hover {
+      background-color: lightcoral;
+   }
+
+   .modal-btn.cancel:hover {
+      background-color: darkgrey;
+   }
+   </style>
+</head>
+<body>
+   <header class="header">
+      <div class="flex">
+         <button id="menu-btn" class="d-md-none">☰</button> <!-- Added toggle button -->
+         <a href="#" class="logo"><b>Admin Dashboard</b></a>
+
+         <form action="" class="search-form">
+            <input type="text" name="search" placeholder="Search...">
+            <button type="submit">🔍</button>
+         </form>
+      </div>
+   </header>
+
+   <section>
+      <aside class="side-bar bg-primary text-white p-3 position-fixed vh-100">
+         <div id="close-btn" class="d-md-none text-end">
+            <i class="fas fa-times text-white fs-4"></i>
+         </div>
+      
+         <div class="profile text-center my-4">
+            <img src="../IMAGES/LMS_LEARNING_MANAGEMENT_SYSTEM__1_-removebg-preview.png" alt="Profile Image" class="image img-fluid rounded-circle mb-3">
+            <h3 class="name h4">BrightMind</h3>
+         </div>
+      
+            <nav class="navbar">
+               <a href="/HTML/Admin_Dashboard.html" class="d-block py-2 "><i class="fas fa-home"></i> Home</a>
+               <a href="/HTML/Coursecreate.html" class="d-block py-2 "><i class="fas fa-user"></i> Create course</a>
+               <a href="/HTML/delete.html" class="d-block py-2 "><i class="fas fa-database"></i> View All Courses</a>
+               <a href="/HTML/courselist.html" class="d-block py-2 "><i class="fas fa-book-open"></i> Total Courses</a>
+               <a href="/HTML/Instructorlist.html" class="d-block py-2 "><i class="fas fa-user-graduate"></i> Total Instructor</a>
+               <a href="/HTML/studentlist.html" class="d-block py-2 "><i class="fas fa-address-card"></i> Total Students</a>
+               <a href="/HTML/report.html" class="d-block py-2 "><i class="fas fa-cog"></i> Report</a>
+               <a href="/HTML/logout.html" class="d-block py-2 "><i class="fas fa-sign-out-alt"></i> Logout</a>
+         </nav>
+      </aside>
+   </section>
+   <!-- Delete Confirmation Modal -->
+<div id="deleteModal" class="modal">
+   <div class="modal-content">
+      <h2>Confirm Deletion</h2>
+      <p>Are you sure you want to delete this course?</p>
+      <button id="confirmDelete" class="modal-btn confirm">Yes, Delete</button>
+      <button id="cancelDelete" class="modal-btn cancel">Cancel</button>
+   </div>
+</div>
+
+   <!-- Main Content -->
+   <main class="list">
+      <h1>Instructors List</h1>
+      <a href="../HTML/AddInstructor.html"><button class="add-btn">+ Add Instructor</button></a>
+      <table>
+         <thead>
+            <tr>
+               <th>Instructor ID</th>
+               <th>Name</th>
+               <th>Email</th>
+               <th>Course Assigned</th>
+               <th>Join Date</th>
+               <th>Actions</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr>
+               <td>001</td>
+               <td>John Doe</td>
+               <td>john.doe@example.com</td>
+               <td>Python Programming</td>
+               <td>2023-08-15</td>
+               <td>
+                  <button class="icon-btn" onclick="editInstructor('001')">
+                    <a href="../HTML/Instructoreditlist.html"> <i class="fas fa-edit"></i></a>
+                  </button>
+                  <button class="icon-btn" onclick="deleteInstructor('001')">
+                     <i class="fas fa-trash-alt"></i>
+                  </button>
+               </td>
+            </tr>
+            <tr>
+               <td>002</td>
+               <td>Jane Smith</td>
+               <td>jane.smith@example.com</td>
+               <td>Java Development</td>
+               <td>2023-09-10</td>
+               <td>
+                  <button class="icon-btn" onclick="editInstructor('002')">
+                     <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="icon-btn" onclick="deleteInstructor('002')">
+                     <i class="fas fa-trash-alt"></i>
+                  </button>
+               </td>
+            </tr>
+            <tr>
+               <td>003</td>
+               <td>Emily Johnson</td>
+               <td>emily.johnson@example.com</td>
+               <td>Data Science</td>
+               <td>2023-07-22</td>
+               <td>
+                  <button class="icon-btn" onclick="editInstructor('003')">
+                     <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="icon-btn" onclick="deleteInstructor('003')">
+                     <i class="fas fa-trash-alt"></i>
+                  </button>
+               </td>
+            </tr>
+            <tr>
+               <td>004</td>
+               <td>Michael Brown</td>
+               <td>michael.brown@example.com</td>
+               <td>Web Development</td>
+               <td>2023-10-05</td>
+               <td>
+                  <button class="icon-btn" onclick="editInstructor('004')">
+                     <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="icon-btn" onclick="deleteInstructor('004')">
+                     <i class="fas fa-trash-alt"></i>
+                  </button>
+               </td>
+            </tr>
+            <tr>
+               <td>005</td>
+               <td>Linda Davis</td>
+               <td>linda.davis@example.com</td>
+               <td>Machine Learning</td>
+               <td>2023-06-18</td>
+               <td>
+                  <button class="icon-btn" onclick="editInstructor('005')">
+                     <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="icon-btn" onclick="deleteInstructor('005')">
+                     <i class="fas fa-trash-alt"></i>
+                  </button>
+               </td>
+            </tr>
+            <tr>
+               <td>006</td>
+               <td>Robert Wilson</td>
+               <td>robert.wilson@example.com</td>
+               <td>Database Management</td>
+               <td>2023-11-11</td>
+               <td>
+                  <button class="icon-btn" onclick="editInstructor('006')">
+                     <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="icon-btn" onclick="deleteInstructor('006')">
+                     <i class="fas fa-trash-alt"></i>
+                  </button>
+               </td>
+            </tr>
+            <tr>
+               <td>007</td>
+               <td>Alice Martinez</td>
+               <td>alice.martinez@example.com</td>
+               <td>Cyber Security</td>
+               <td>2023-05-25</td>
+               <td>
+                  <button class="icon-btn" onclick="editInstructor('007')">
+                     <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="icon-btn" onclick="deleteInstructor('007')">
+                     <i class="fas fa-trash-alt"></i>
+                  </button>
+               </td>
+            </tr>
+         </tbody>
+      </table>
+   </main>
+
+   <!-- Footer Section -->
+   <footer class="footer">
+    &copy; copyrights 2024 BrightMind. All rights reserved.
+   </footer>
+ 
+   <script>
+      function addInstructor() {
+         // Redirect to add instructor page
+         window.location.href = "/HTML/AddInstructor.html";
+      }
+
+      function editInstructor(instructorId) {
+         // Redirect to edit instructor page
+         window.location.href = "/HTML/Instructoreditlist.html?id=" + instructorId;
+      }
+
+      function deleteInstructor(instructorId) {
+         // Confirm before deleting
+         if (confirm("Are you sure you want to delete this instructor?")) {
+            // Perform delete operation
+            console.log("Deleted instructor with ID:", instructorId);
+         }
+      }
+
+      // JavaScript for toggling sidebar
+      document.getElementById('menu-btn').addEventListener('click', function () {
+         document.querySelector('.side-bar').classList.toggle('active');
+         document.body.classList.toggle('active');
+      });
+
+      document.getElementById('close-btn').addEventListener('click', function () {
+         document.querySelector('.side-bar').classList.remove('active');
+         document.body.classList.remove('active');
+      });
+
+ 
+      function deleteCourse(courseId) {
+   // Show the modal
+   var modal = document.getElementById("deleteModal");
+   modal.style.display = "block";
+
+   // When the user clicks on "Yes, Delete"
+   document.getElementById("confirmDelete").onclick = function () {
+      // Perform delete operation
+      console.log("Deleted course with ID:", courseId);
+      modal.style.display = "none";
+   };
+
+   // When the user clicks on "Cancel"
+   document.getElementById("cancelDelete").onclick = function () {
+      modal.style.display = "none";
+   };
+
+   // If the user clicks anywhere outside of the modal, close it
+   window.onclick = function(event) {
+      if (event.target == modal) {
+         modal.style.display = "none";
+      }
+   };
+}
+   </script>
+</body>
+</html>
