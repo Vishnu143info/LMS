@@ -1,545 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BrightMind</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <!-- <link rel="stylesheet" href="../CSS/index.css"> Your custom CSS -->
-    <style>
-        /* Global Styles */
-body {
-    font-family: 'Montserrat', sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* Header Styles */
-header {
-    background-color: #ff4d6d; /* Example color */
-    color: white;
-    padding: 7px 0;
-    position: fixed;
-    width: 100%;
-    z-index: 1000;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-header .logo {
-    margin-left: -15%; /* Ensure the logo aligns with the left edge */
-}
-
-.logo-img {
-    max-height: 70px;
-    margin-left: 0; /* Set margin-left to 0 to remove any spacing */
-}
-
-.logo-text {
-    font-weight: 600;
-    font-size: 24px;
-    margin-left: 10px; /* Optional: Adjust spacing between logo image and text */
-}
-
-header .nav {
-    display: flex;
-}
-
-header .nav-link {
-    color: #fff;
-    font-weight: 600;
-    padding: 0.5rem 1rem;
-    transition: background 0.3s, color 0.3s, transform 0.3s;
-    border-radius: 5px;
-}
-
-header .nav-link:hover {
-    background: rgba(255, 255, 255, 0.2);
-    transform: scale(1.1);
-}
-
-/* Hero Section */
-#hero {
-    background:#ff4d6d;
-    color: #fff;
-    margin-top: 6%;
-    padding-top: 80%;
-    text-align: left;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: -3%;
-}
-
-#hero .hero-content {
-    max-width: 100%;
-    text-align: left; /* Ensure text alignment is as desired */
-}
-
-#hero h1 {
-    font-size: 3rem;
-    margin-top: -4%;
-    line-height: 1.2;
-    padding-top: 10%;
-}
-
-#hero p {
-    font-size: 1.2rem;
-    margin-bottom: 1.5rem;
-}
-
-#hero ul {
-    list-style: none;
-    padding: 0;
-    margin-bottom: 1.5rem;
-}
-
-#hero ul li {
-    background: rgba(255, 255, 255, 0.2);
-    padding: 0.5rem 1rem;
-    margin-bottom: 0.5rem;
-    border-radius: 5px;
-    font-size: 1.1rem;
-}
-
-#hero .cta-button {
-    background: #fff;
-    color: #ff4d6d;
-    padding: 0.7rem 2rem;
-    border: none;
-    cursor: pointer;
-    font-size: 1rem;
-    font-weight: bold;
-    border-radius: 5px;
-    transition: background 0.3s, color 0.3s;
-}
-
-#hero .cta-button:hover {
-    background: #ff4d6d;
-    color: #fff;
-}
-
-#hero .cta-button a {
-    color: #ff4d6d;
-    text-decoration: none;
-}
-
-@media (max-width: 768px) {
-    #hero {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    #hero .hero-image img {
-        width: 80%;
-    }
-}
-
-
-/* About Us Section */
-.about-us {
-    padding: 130px 100px;
-    text-align: center;
-}
-
-.cards-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    justify-content: center;
-    margin-top: 2rem;
-}
-
-.card {
-    background: #fff;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 1rem;
-    width: calc(33.333% - 2rem);
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
-}
-
-.card strong {
-    display: block;
-    margin-bottom: 0.5rem;
-    color: #ff4d6d;
-}
-
-.card p {
-    color: #333;
-    line-height: 1.5;
-}
-
-#contact {
-    padding: 100px 0;
-    background: linear-gradient(135deg, #ff4d6d, #ff767d);
-    color: #fff;
-    text-align: center;
-}
-
-.contact-card {
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 2rem;
-    color: #333;
-}
-
-.contact-card h3 {
-    color: #ff4d6d;
-}
-
-.contact-card .icon {
-    font-size: 1.5rem;
-    color: #ff4d6d;
-    margin-right: 10px;
-}
-
-.contact-card .info {
-    font-size: 1rem;
-    line-height: 1.6;
-}
-
-.contact-card .info p {
-    margin-bottom: 1rem;
-}
-
-.contact-map {
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-.contact-card button {
-    background: #ff4d6d;
-    color: #fff;
-}
-
-.contact-card button:hover {
-    background: #f06b8c;
-}
-
-.contact-card button:focus {
-    box-shadow: none;
-} 
-.thank-you-message {
-    margin-top: 2rem;
-    font-size: 1.1rem;
-    color: #333;
-}
-/*Quick link*/
-h1 {
-    text-align: center;
-    color: #333;
-}
-
-.quick-links {
-    margin-top: 30px;
-}
-
-.quick-links h2 {
-    color:  #ff4d6d;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.card-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-}
-
-.card {
-    background: #ffffff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 20px;
-    width: 200px;
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.card h3 {
-    margin: 0;
-    color: #333;
-}
-
-.card p {
-    margin: 10px 0 0;
-    color: #666;
-}
-
-.card a {
-    text-decoration: none;
-    color: inherit;
-}
-
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-}
-/* Footer Styles */
-footer {
-    background: #333;
-    color: #fff;
-    text-align: center;
-    padding: 1rem 0;
-}
-
-footer .social-links {
-    margin-bottom: 1rem;
-}
-
-footer .social-links a {
-    color: #fff;
-    margin: 0 0.5rem;
-    text-decoration: none;
-    font-size: 1.5rem;
-    transition: color 0.3s;
-}
-
-footer .social-links a:hover {
-    color: #ff4d6d;
-}
-/* Fixed Footer */
-footer {
-
-    bottom: 0;
-    left: 0;
-    height: 5.5%;
-    width: 100%;
-    background: #0c0d1a;
-    color: #fff;
-    text-align: center;
-    padding: 1rem 0;
-    font-family: 'Poppins', sans-serif; /* Updated to use Poppins */
-    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
-}
-
-footer p {
-    margin: 0;
-    font-size: 1rem;
-}
-
-footer a {
-    color: #ff4d6d;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s;
-}
-
-footer a:hover {
-    color: #f06b8c;
-}
-
-/* Ensure footer is not overlapping content */
-body {
-    padding-bottom: 1rem; /* Adjust this if footer height changes */
-}
-
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BrightMind</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+<link rel="stylesheet" href="/CSS/index.css">
 </head>
+
 <body>
-    <header class="bg-gradient text-white shadow-sm fixed-top">
-        <div class="container d-flex align-items-center justify-content-between">
-            <div class="logo d-flex align-items-center">
-                <img src="./IMAGES/LMS_LEARNING_MANAGEMENT_SYSTEM__1_-removebg-preview.png" alt="Logo" class="logo-img">
-                <span class="logo-text">BrightMind</span>
-            </div>
-            <nav class="ml-auto">
-                <ul class="nav nav-pills">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#hero">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#about">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../HTML/login.html" target="_blank">Login</a>
-                    </li>
-                </ul>
-            </nav>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark custom-navbar">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center" href="#">
+      <img src="./IMAGES/LMS_LEARNING_MANAGEMENT_SYSTEM__1_-removebg-preview.png" class="logo-img" alt="Logo"/>
+      <span class="logo-text ml-2">BrightMind</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link cool-link" href="#hero">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link cool-link" href="#about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link cool-link" href="#contact">Contact</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link cool-link" href="../HTML/login.html" target="_blank">Login</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+  <!-- Hero Section -->
+  <section id="hero" class="container-fluid">
+    <div class="hero-content">
+      <h1>Unlock Your Potential</h1>
+      <p>BrightMind is your premier destination for online learning and professional development...</p>
+      <ul>
+        <li>Interactive Courses Designed by Experts</li>
+        <li>Real-Time Feedback and Assessments</li>
+        <li>Community Support and Peer Interaction</li>
+        <li>Flexible Learning at Your Own Pace</li>
+      </ul>
+      <button class="cta-button">
+        <a href="/HTML/Course.html">Start Learning Now</a>
+      </button>
+    </div>
+    <div class="hero-image">
+      <img src="./IMAGES/360_F_634756039_Ik9PQVpRvRfe96uTd7PBGXjhN96wT3Yj.jpg" alt="Hero Image" />
+    </div>
+  </section>
+
+  <!-- About Us Section -->
+  <section id="about" class="about-us">
+    <h2>About Us</h2>
+    <p>Welcome to BrightMind, your go-to platform for comprehensive learning...</p>
+    <div class="cards-container">
+      <div class="card"><strong>Centralized Repository</strong><p>All your educational resources in one place</p></div>
+      <div class="card"><strong>Convenient Learning</strong><p>User-friendly interface, mobile compatibility, and offline access</p></div>
+      <div class="card"><strong>Strategic Insights</strong><p>Advanced analytics and reporting tools for better learning outcomes</p></div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 mb-4">
+          <div class="contact-card">
+            <h3><i class="fas fa-info-circle icon"></i> Contact Us</h3>
+            <p>If you have any questions...</p>
+            <p><i class="fas fa-map-marker-alt icon"></i> Coimbatore, Tamil Nadu</p>
+            <p><i class="fas fa-envelope icon"></i> info@brightmind.com</p>
+            <p><i class="fas fa-phone icon"></i> +91 93445 98906</p>
+          </div>
         </div>
-    </header>
-    
-    <main>
-        <!-- Hero section -->
-        <section id="hero" class="container-fluid d-flex flex-column flex-md-row align-items-center py-5  text-white">
-            <div class="hero-content col-md-6">
-                <h1>Unlock Your Potential</h1>
-                <p>
-                    BrightMind is your premier destination for online learning and professional development. We cater to students striving for academic excellence, professionals seeking to enhance their skills, and organizations aiming to empower their teams. Our comprehensive platform offers interactive courses, real-time feedback, and flexible learning options. Whether you want to advance in your career or support your team's growth, we have the resources you need. Join us to unlock your full potential and achieve your goals.
-                </p>
-                <ul class="list-unstyled">
-                    <li>Interactive Courses Designed by Experts</li>
-                    <li>Real-Time Feedback and Assessments</li>
-                    <li>Community Support and Peer Interaction</li>
-                    <li>Flexible Learning at Your Own Pace</li>
-                </ul>
-                <button class="cta-button btn btn-light">
-                    <a href="/HTML/Course.html" class="text-danger">Start Learning Now</a>
-                </button>
-            </div>
-            <div class="hero-image col-md-6 text-center">
-                <img src="./IMAGES/360_F_634756039_Ik9PQVpRvRfe96uTd7PBGXjhN96wT3Yj.jpg" alt="Team" class="img-fluid rounded shadow-lg">
-            </div>
-        </section>
-        
-        <!-- About us section -->
-        <section id="about" class="about-us">
-            <h2>About Us</h2>
-            <p>Welcome to BrightMind, your go-to platform for comprehensive learning and professional development.</p>
-            <div class="cards-container">
-                <div class="card">
-                    <strong>Centralized Repository</strong>
-                    <p>All your educational resources in one place</p>
-                </div>
-                <div class="card">
-                    <strong>Convenient Learning</strong>
-                    <p>User-friendly interface, mobile compatibility, and offline access</p>
-                </div>
-                <div class="card">
-                    <strong>Strategic Insights</strong>
-                    <p>Advanced analytics and reporting tools for better learning outcomes</p>
-                </div>
-                <div class="card">
-                    <strong>Upskilling and Reskilling</strong>
-                    <p>Continuous professional development with various courses</p>
-                </div>
-                <div class="card">
-                    <strong>Assessment and Feedback</strong>
-                    <p>Robust assessment tools with instant feedback and grading</p>
-                </div>
-                <div class="card">
-                    <strong>Scalability</strong>
-                    <p>Manage a growing number of courses and users effortlessly</p>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Contact us section -->
-        <section id="contact">
-            <div class="container">
-                <div class="row">
-                    <!-- Contact Details and Map -->
-                    <div class="col-md-6 mb-4">
-                        <div class="contact-card">
-                            <h3><i class="fas fa-info-circle icon"></i> Contact Us</h3>
-                            <p>If you have any questions or need further assistance, feel free to reach out to us. We're here to help!</p>
-                            <div class="info">
-                                <p><i class="fas fa-map-marker-alt icon"></i> 102, Bashyakarlu Rd, Vincent Colony, R S Puram West, Coimbatore, Tamil Nadu 641002, India</p>
-                                <p><i class="fas fa-envelope icon"></i> info@business.com | support@business.com</p>
-                                <p><i class="fas fa-phone icon"></i> +91 9344598906</p>
-                            </div>
-                            <h3 class="mt-4"><i class="fas fa-map-marked-alt icon"></i> Our Location</h3>
-                            <div class="contact-map mt-3">
-                                <iframe 
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.8354345098576!2d144.95565121531688!3d-37.81732797975178!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0xf577bb4d5c6aa4b0!2sPatricia%20Place!5e0!3m2!1sen!2sus!4v1640700567081!5m2!1sen!2sus" 
-                                    width="100%" 
-                                    height="200" 
-                                    style="border:0;" 
-                                    allowfullscreen="" 
-                                    loading="lazy">
-                                </iframe>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Contact Form -->
-                    <div class="col-md-6 mb-4">
-                        <div class="contact-card">
-                            <h3><i class="fas fa-pencil-alt icon"></i> Get in Touch</h3>
-                            <form action="#" method="post">
-                                <div class="form-group">
-                                    <label for="name">Your Name</label>
-                                    <input type="text" id="name" name="name" class="form-control" placeholder="Your Name" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="email">Email Address</label>
-                                    <input type="email" id="email" name="email" class="form-control" placeholder="Email Address" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="message">Your Message</label>
-                                    <textarea id="message" name="message" class="form-control" rows="5" placeholder="Your Message" required></textarea>
-                                </div>
-                                <div class="button">
-                                    <button type="submit" class="btn btn-block">Send Message</button>
-                                </div>
-                                <div class="thank-you-message mt-3">
-                                    <p>Thank you for reaching out to us! We will get back to you as soon as possible.</p>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>                
-    </main>
-    <footer>
-        <div class="quick-links">
-            <h2>Quick Links</h2>
-            <div class="card-container">
-                <div class="card">
-                    <a href="#hero">
-                        <h3>Home</h3>
-                        <p>Return to the main page</p>
-                    </a>
-                </div>
-                <div class="card">
-                    <a href="#">
-                        <h3>Courses</h3>
-                        <p>Browse available courses</p>
-                    </a>
-                </div>
-                <div class="card">
-                    <a href="#contact">
-                        <h3>Support</h3>
-                        <p>Get help and support</p>
-                    </a>
-                </div>
-                <div class="card">
-                    <a href="#about">
-                        <h3>About Us</h3>
-                        <p>Learn more about us</p>
-                    </a>
-                </div>
-                <div class="card">
-                    <a href="#contact">
-                        <h3>Contact Us</h3>
-                        <p>Find out how to reach us</p>
-                    </a>
-                </div>
-            </div>
+        <div class="col-md-6 mb-4">
+          <div class="contact-card">
+            <h3><i class="fas fa-pencil-alt icon"></i> Get in Touch</h3>
+            <form>
+              <input type="text" class="form-control mb-3" placeholder="Your Name" required>
+              <input type="email" class="form-control mb-3" placeholder="Email Address" required>
+              <textarea class="form-control mb-3" rows="4" placeholder="Your Message" required></textarea>
+              <button type="submit" class="btn btn-block">Send Message</button>
+            </form>
+          </div>
         </div>
-        <br>
-        <!-- Social media links -->
-        <div class="social-links">
-            <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
-            <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-            <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
-        </div>
-        <br>
-        <div class="footer-copy">
-            <p>&copy; <span id="year"></span> copyright 2024 BrightMind. All rights reserved.</p>
-        </div>
-    </footer>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="quick-links">
+      <h2>Quick Links</h2>
+      <div class="card-container">
+        <div class="card"><a href="#hero"><h3>Home</h3></a></div>
+        <div class="card"><a href="#"><h3>Courses</h3></a></div>
+        <div class="card"><a href="#contact"><h3>Support</h3></a></div>
+        <div class="card"><a href="#about"><h3>About Us</h3></a></div>
+      </div>
+    </div>
+    <div class="social-links mt-4">
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-linkedin-in"></i></a>
+    </div>
+    <p class="mt-3">&copy; <span id="year"></span> BrightMind. All rights reserved.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-</html> 
+</html>
